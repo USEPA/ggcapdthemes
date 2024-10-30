@@ -18,6 +18,31 @@ You can install the development version of ggcapdthemes from
 devtools::install_github("usepa/ggcapdthemes")
 ```
 
+Note: while `ggcapdthemes` is still an internal repository, you will
+also need a Github Personal Access Token (PAT) to install it.
+
+1.  Create GitHub personal access token with ‘repo scope’
+
+    - Go to <https://github.com/settings/tokens> and select Tokens
+      (classic) on the left-hand side. Then click “Generate New Token”
+      –\> “Generate new token (classic)”.
+
+    - Give it a name and select all boxes under repo scope. Scroll down
+      and click “Generate Token”.
+
+    - Copy this code somewhere safe. Note: it will expire at some point
+      and need to be re-generated.
+
+2.  set GitHub credentials in Rstudio
+
+    - store credentials long-term: run `usethis::edit_r_environ()` to
+      open your .Renviron file and and add a line with your PAT in this
+      format: `GITHUB_PAT = 'abc'`. After saving this file, make sure to
+      restart your R session for it to take effect (Go to the session
+      toolbar and click “Restart R”).
+    - You can specify an extra argument scope = ‘project’ if you only
+      want the PAT to work for a particular Rstudio project
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
