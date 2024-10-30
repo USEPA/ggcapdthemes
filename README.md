@@ -48,11 +48,12 @@ also need a Github Personal Access Token (PAT) to install it.
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
+library(ggplot2)
 library(ggcapdthemes)
 ## basic example code
-df <- ggplot2::mpg
-ggplot2::ggplot(df, ggplot2::aes(x=cyl, y=cty)) +
-   ggplot2::geom_point() +
+df <- mpg
+ggplot(df, aes(x=cyl, y=cty)) +
+   geom_point() +
    theme_egrid()
 ```
 
