@@ -2,9 +2,9 @@ Package: ggcapdthemes
 Title: What the Package Does (One Line, Title Case)
 Version: 1.0.0
 Authors@R: c(
-    person("Johnathan", "Tafoya", , "Tafoya.Johnathan@epa.gov", role = c("aut", "cre")),
-    person("Travis", "Johnson", "Johnson.Travis@epa.gov", role = c("aut", "cre")),
-    person("Marschall", "Furman", "Marschall.Furman@abtglobal.com", role = "aut")
+    person("Johnathan", "Tafoya", email = "Tafoya.Johnathan@epa.gov", role = c("aut", "cre")),
+    person("Travis", "Johnson", email = "Johnson.Travis@epa.gov", role = "aut"),
+    person("Marschall", "Furman", email = "Marschall.Furman@abtglobal.com", role = "aut")
     )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
