@@ -6,7 +6,11 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ggcapdthemes is to …
+The `ggcapdthemes` package provides a custom ggplot2 theme and
+functionality to incorporate guidance from the EPA’s Clean Air Power
+Division (CAPD) Data Visualization Style Guide. Examples show how to
+implement the theme and color palettes and demonstrate best practices
+for building various chart types in R.
 
 ## Installation
 
@@ -20,19 +24,45 @@ devtools::install_github("usepa/ggcapdthemes")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here we use the `resource_mix_2022` dataset from eGRID 2022 Summary
+data. We show the barplot using ggplot2 and and after applying the
+`scale_color_egrid_discrete` and `theme_egrid` functions.
 
 ``` r
 library(ggplot2)
 library(ggcapdthemes)
-## basic example code
-df <- mpg
-ggplot(df, aes(x=cyl, y=cty)) +
-   geom_point() +
-   theme_egrid()
+
+## build ggplot barplot
+p_bar <- ggplot(data = resource_mix_2022) +
+  geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
+           stat = 'identity') +
+  labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource', 
+       title = '2022 eGRID Generation Resource Mix',
+       caption = 'Data from 2022 eGRID summary data, Table 2')
+
+## original chart
+p_bar
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
+
+## with egrid theme
+p_bar + theme_egrid()
+```
+
+<img src="man/figures/README-example-2.png" width="100%" />
+
+``` r
+
+## with fuel type color palette and egrid theme
+p_bar + 
+  scale_fill_egrid_discrete(palette = 'fuel_type') +
+  theme_egrid() 
+```
+
+<img src="man/figures/README-example-3.png" width="100%" />
 
 ## Disclaimer
 
