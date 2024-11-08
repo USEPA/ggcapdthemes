@@ -1,9 +1,8 @@
 #' Color Palettes for eGRID
 #'
-#' A subset of data from the World Health Organization Global Tuberculosis
-#' Report ...
+#' @description Color Palettes for eGRID
 #'
-#' @format ## `who`
+#' @format
 #' A named list with hex color codes
 #'
 #' @source eGRID Data Visualization Style Guide

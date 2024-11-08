@@ -5,10 +5,7 @@
 \alias{egrid_palettes}
 \title{Color Palettes for eGRID}
 \format{
-\subsection{\code{who}}{
-
 A named list with hex color codes
-}
 }
 \source{
 eGRID Data Visualization Style Guide
@@ -17,7 +14,6 @@ eGRID Data Visualization Style Guide
 egrid_palettes
 }
 \description{
-A subset of data from the World Health Organization Global Tuberculosis
-Report ...
+Color Palettes for eGRID
 }
 \keyword{datasets}
