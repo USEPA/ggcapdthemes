@@ -1,12 +1,12 @@
 Package: ggcapdthemes
-Title: What the Package Does (One Line, Title Case)
+Title: Custom ggplot2 theme for EPA CAPD visualizations
 Version: 1.0.0
 Authors@R: c(
     person("Johnathan", "Tafoya", email = "Tafoya.Johnathan@epa.gov", role = c("aut", "cre")),
     person("Travis", "Johnson", email = "Johnson.Travis@epa.gov", role = "aut"),
     person("Marschall", "Furman", email = "Marschall.Furman@abtglobal.com", role = "aut")
     )
-Description: What the package does (one paragraph).
+Description: Provides a custom ggplot2 theme and functionality to incorporate guidance from the EPA's Clean Air Power Division (CAPD) Data Visualization Style Guide. Examples show how to implement the theme and color palettes and demonstrate best practices for building various chart types in R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
