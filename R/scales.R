@@ -38,9 +38,9 @@ scale_fill_egrid_discrete <-function(palette = "fuel_type", reverse = FALSE, ...
 
   pal <- egrid_pal(palette = palette, reverse = reverse)
 
-  ggplot2::discrete_scale("fill", pal,
+  ggplot2::discrete_scale("fill",
                           na.value = NA_col,
-                          palette = pal, ...)
+                          palette = pal, limits=names(ggcapdthemes::egrid_palettes[[palette]]), ...)
 
 }
 
