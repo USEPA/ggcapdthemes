@@ -59,8 +59,40 @@ egrid_palettes_dynamic <- list(
     '6' = c('#5C410A', '#936F38', '#E5A000', '#73B3E7', '#2378C3', '#274863'),
     '7' = c('#5C410A', '#936F38', '#E5A000', '#E6E6E6', '#73B3E7', '#2378C3','#274863'),
 
+  ),
+  'sequential' = list(
+    '3' =  c('#D9E8F6','#AACDEC','#73B3E7'),
+    '4' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1'),
+    '5' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1','#2378C3'),
+    '6' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1','#2378C3','#2C608A'),
+    '7' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1','#2378C3','#2C608A','#274863')
   )
 
+)
+
+bivariate_palettes <- list(
+  'bivariate1' = c(
+    "1-1" = "#F0F0F0", # low x, low y
+    "2-1" = "#88B0D3",
+    "3-1" = "#2273BB", # high x, low y
+    "1-2" = "#D3B77E",
+    "2-2" = "#7B8871", # medium x, medium y
+    "3-2" = "#1E5964",
+    "1-3" = "#BA800C", # low x, high y
+    "2-3" = "#6C5F0A",
+    "3-3" = "#1B3F09" # high x, high y
+  ),
+  'bivariate2' = c(
+    "1-1" = "#F0F0F0", # low x, low y
+    "2-1" = "#CC9CD1",
+    "3-1" = "#A947B6", # high x, low y
+    "1-2" = "#A2C2A8",
+    "2-2" = "#8D8096", # medium x, medium y
+    "3-2" = "#753B82",
+    "1-3" = "#5A9965", # low x, high y
+    "2-3" = "#4E655A",
+    "3-3" = "#412E4E" # high x, high y
+  )
 )
 
 usethis::use_data(egrid_palettes, overwrite = TRUE)
