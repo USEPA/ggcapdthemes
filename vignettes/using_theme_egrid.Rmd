@@ -1,0 +1,97 @@
+---
+title: "Using theme_egrid"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using theme_egrid}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ggplot2)
+library(ggcapdthemes)
+```
+
+## How to use `ggcapdthemes`
+
+-   4 example chart types
+
+## Color
+
+Discrete color palettes 
+
+```{r, echo = FALSE}
+
+# pals::pal.bands(
+#   egrid_palettes$fuel_type,
+#   egrid_palettes$fuel_type2,
+#   egrid_palettes$pollutant,
+#   egrid_palettes$renewables,
+#   egrid_palettes$renewables2,
+#   egrid_palettes$combustion,
+#   egrid_palettes$unordered,
+#   egrid_palettes$unordered2,
+#   
+#   labels = c('fuel_type','fuel_type2','pollutant','renewables','renewables2','combustion','unordered','unordered2'),
+#   gap = 0.25,
+#   main = 'Discrete Color Palettes'
+# )
+
+scales::show_col(egrid_palettes$fuel_type, ncol=length(egrid_palettes$fuel_type), borders = NA, labels = TRUE, cex_label = 0.8)
+text(seq_along(egrid_palettes$fuel_type) - 0.5, 0.2, stringr::str_wrap(names(egrid_palettes$fuel_type),width = 8), 
+     cex = 0.8, col = 'black')
+```
+
+Continuous color palettes
+
+```{r}
+
+```
+
+## Titles, subtitles, captions, footnotes
+
+```{r, eval = FALSE}
+plot.title = element_text(hjust = 0.5), 
+plot.subtitle = element_text(hjust = 0.5)
+plot.caption = element_text()
+```
+
+## Gridlines and background
+
+```{r, eval = FALSE}
+plot.background = element_rect(fill = "white", color = NA), 
+panel.background = element_rect(fill = "white", color = NA), 
+panel.border = element_blank(), 
+panel.grid = element_line(color = "#c9c9c9", linetype = "dotted")
+
+```
+
+## Axes and ticks
+
+```{r, eval = FALSE}
+axis.line = element_line(color = "#2e2e2e", linetype = "solid"), 
+axis.title = element_text(), 
+axis.title.y = element_text(vjust = 1, angle = 0, hjust = 1), 
+axis.ticks = element_blank(), 
+axis.text = element_text()
+```
+
+## Legends
+
+```{r, eval = FALSE}
+legend.text = element_text()
+legend.title = element_text()
+```
+
+## Font size, color
+
+## Fontface (tentative)
+
+Font style

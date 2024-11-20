@@ -18,3 +18,9 @@ Depends:
 URL: https://github.com/USEPA/ggcapdthemes
 BugReports: https://github.com/USEPA/ggcapdthemes/issues
 LazyData: true
+Suggests: 
+    gghighlight,
+    knitr,
+    pals,
+    rmarkdown
+VignetteBuilder: knitr
