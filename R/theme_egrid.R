@@ -25,7 +25,7 @@ theme_egrid <- function(){
 
         ## format plot background
         ## change background color
-        plot.background = element_rect(fill = 'white'),
+        plot.background = element_rect(fill = 'white', color = NA),
         panel.background = element_rect(fill = 'white', color = NA),
         panel.border = element_blank(),
 
