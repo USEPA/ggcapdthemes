@@ -1,0 +1,109 @@
+---
+title: "Best Practices"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Best Practices}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ggplot2)
+library(ggcapdthemes)
+```
+
+## Initial plot
+
+```{r}
+## build ggplot barplot
+p_bar <- ggplot(data = resource_mix_2022) +
+  geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
+           stat = 'identity') +
+  labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource', 
+       title = '2022 eGRID Generation Resource Mix',
+       caption = 'Data from 2022 eGRID summary data, Table 2') + 
+  scale_fill_egrid_discrete(palette = 'fuel_type') +
+  theme_egrid() 
+```
+
+### Legends - reordering
+
+```{r}
+
+```
+
+### Color as highlight
+
+Using the `gghighlight` package to assist
+
+#### Highlighting discrete colors
+
+Leave fuel type as original color, gray out non-highlighted groups.
+
+```{r}
+p_bar + gghighlight::gghighlight(
+  resource == 'gas',
+  unhighlighted_params = list(
+    #fill = '#919191',
+    fill = '#C9C9C9', 
+    color = '#2E2E2E',
+    linewidth = 0.2) 
+)
+  
+```
+
+#### Highlighting continuous colors
+
+```{r}
+p_bar + gghighlight::gghighlight(
+  resource == 'gas',
+  unhighlighted_params = list(
+    #fill = '#919191',
+    fill = '#C9C9C9', 
+    color = '#2E2E2E',
+                              linewidth = 0.2) 
+)
+```
+
+```{r, eval=F}
+
+p_co2 <- explorer_data %>% 
+  rename(co2 = `CO2 total output emission rate (lb/MWh) by eGRID subregion 2022`) %>% 
+  ggplot(aes(y = Region, x = co2)) + 
+  geom_bar(stat = 'identity', fill = '#2378C3') + 
+  theme_egrid()
+
+p_co2 +
+  gghighlight::gghighlight(
+    Region == 'NYUP',
+    unhighlighted_params = list(
+    #fill = '#919191',
+    fill = '#C9C9C9', 
+    #color = '#2E2E2E',
+                              linewidth = 0.2) 
+  )
+
+```
+
+### Tooltips
+
+### Data labels
+
+### Data accessibility
+
+#### Contrast
+
+#### Color-Blindness
+
+#### Additional Encodings
+
+#### Alt text for charts
+
+### Fuel Type icons
