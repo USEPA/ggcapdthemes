@@ -32,7 +32,7 @@ egrid_palettes <- list(
                    'Geothermal' = '#C84281'),
 
   ## Consolidated fuel type: renewables
-  'renewables' = c('#EF5E25', '#8A984B','Hydro'='#2378C3','Nuclear'='#9287D8'),
+  'renewables' = c('Non-nuclear' = '#EF5E25', 'Non-hydro'= '#8A984B','Hydro'='#2378C3','Nuclear'='#9287D8'),
 
   'renewables2' = c('Non-renewable'='#EF5E25','Renewable'='#8A984B'),
 
