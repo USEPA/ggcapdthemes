@@ -1,6 +1,6 @@
-#' 2022 Resource Mix
+#' Resource Mix Data
 #'
-#' @description Collected from eGRID 2022 Summary dataset Table 2. Example data for demonstrating eGRID themes and scales for barplots
+#' @description Collected from eGRID 2018-2022 Summary datasets Table 2. Example data for demonstrating eGRID themes and scales for barplots
 #'
 #' @format
 #' A data frame with 11 rows and 6 columns
@@ -12,5 +12,5 @@
 #'   \item{generation_resource_mix}{Generation Resource Mix (percent)}
 #'   \item{resource_label}{Original Resource name, for charts}
 #'}
-#' @source eGRID 2022 Summary data
-"resource_mix_2022"
+#' @source eGRID 2018-2022 Summary data
+"resource_mix"

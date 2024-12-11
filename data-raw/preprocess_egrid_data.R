@@ -1,9 +1,13 @@
+
+library(tidyverse)
+library(readxl)
+
 ## load eGRID summary data
 egrid_summary_data <- read_excel('data-raw/summary_data_for_ggplot.xlsx') %>%
   janitor::clean_names()
 
-resource_mix_2022 <- egrid_summary_data %>%
-  filter(year == 2022) %>%
+resource_mix <- egrid_summary_data %>%
+  #filter(year == 2022) %>%
   pivot_longer(coal:other_unknown_purchased_fuel,
                names_to = 'resource',values_to = 'generation_resource_mix') %>%
   mutate(
@@ -22,4 +26,4 @@ resource_mix_2022 <- egrid_summary_data %>%
     )
   )
 
-usethis::use_data(resource_mix_2022, overwrite = TRUE)
+usethis::use_data(resource_mix, overwrite = TRUE)
