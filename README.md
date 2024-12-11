@@ -25,16 +25,16 @@ devtools::install_github("usepa/ggcapdthemes", build_vignettes = TRUE)
 
 ## Example
 
-Here we use the `resource_mix_2022` dataset from eGRID 2022 Summary
+Here we use the `resource_mix` dataset from eGRID 2018-2022 Summary
 data. We show the barplot using ggplot2 and and after applying the
-`scale_color_egrid_discrete` and `theme_egrid` functions.
+`scale_color_capd_discrete` and `theme_capd` functions.
 
 ``` r
 library(ggplot2)
 library(ggcapdthemes)
 
 ## build ggplot barplot
-p_bar <- ggplot(data = resource_mix_2022) +
+p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
   geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
            stat = 'identity') +
   labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource', 
@@ -49,18 +49,18 @@ p_bar
 
 ``` r
 
-## with egrid theme
-p_bar + theme_egrid()
+## with capd theme
+p_bar + theme_capd()
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
 
-## with fuel type color palette and egrid theme
+## with fuel type color palette and capd theme
 p_bar + 
-  scale_fill_egrid_discrete(palette = 'fuel_type') +
-  theme_egrid() 
+  scale_fill_capd_discrete(palette = 'fuel_type') +
+  theme_capd() 
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />

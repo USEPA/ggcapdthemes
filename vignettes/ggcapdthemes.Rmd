@@ -2,7 +2,7 @@
 title: "Intro to the ggcapdthemes package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using theme_egrid}
+  %\VignetteIndexEntry{Using theme_capd}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,9 +23,9 @@ library(ggcapdthemes)
 Discrete color palettes
 
 ```{r, echo=c(1,3)}
-egrid_palettes$fuel_type
+capd_palettes$fuel_type
 knitr::include_graphics('images/main-fuel-type.svg')
-egrid_palettes$pollutant
+capd_palettes$pollutant
 knitr::include_graphics('images/poluttant-palette.svg')
 
 ```

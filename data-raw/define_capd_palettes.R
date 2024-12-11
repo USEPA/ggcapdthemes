@@ -1,6 +1,6 @@
-## code to prepare `egrid_palettes` dataset goes here
+## code to prepare `capd_palettes` dataset goes here
 
-egrid_palettes <- list(
+capd_palettes <- list(
 
   ## fuel type
   'fuel_type' = c('Other Unknown' = '#CD425B','Gas' = '#EF5E25','Oil'= '#8E704F','Solar'= '#8A984B', 'Biomass' = '#4D8055',
@@ -42,7 +42,7 @@ egrid_palettes <- list(
 
 )
 
-egrid_palettes_dynamic <- list(
+capd_palettes_dynamic <- list(
   'divergent' =  list(
     '2' = c('#FC906D','#73B3E7'),
     '3' = c('#FC906D','#E6E6E6','#73B3E7'),
@@ -95,7 +95,7 @@ bivariate_palettes <- list(
   )
 )
 
-usethis::use_data(egrid_palettes, overwrite = TRUE)
+usethis::use_data(capd_palettes, overwrite = TRUE)
 
 
 

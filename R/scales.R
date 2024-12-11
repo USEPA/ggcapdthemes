@@ -1,20 +1,20 @@
 
-#' @title eGRID discrete color scales
+#' @title CAPD discrete color scales
 #' @description
-#'  Apply discrete color scale to ggplot object using eGRID palettes
+#'  Apply discrete color scale to ggplot object using CAPD palettes
 #'
-#' @param palette name of palette, from `egrid_palettes`. Defaults to "fuel_type".
+#' @param palette name of palette, from `capd_palettes`. Defaults to "fuel_type".
 #' @param reverse logical to indicate if palette order should be reversed. Defaults to FALSE.
 #' @param ... Additional parameters passed on to the scale type
 #'
 #' @export
 #'
-scale_color_egrid_discrete <- function(palette = "fuel_type", reverse = FALSE, ...) {
+scale_color_capd_discrete <- function(palette = "fuel_type", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- egrid_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal(palette = palette, reverse = reverse)
 
   ggplot2::discrete_scale("color", pal,
                           na.value = NA_col,
@@ -23,41 +23,41 @@ scale_color_egrid_discrete <- function(palette = "fuel_type", reverse = FALSE, .
 }
 
 
-#' @title eGRID discrete fill scales
+#' @title CAPD discrete fill scales
 #' @description
-#'  Apply discrete fill scale to ggplot object using eGRID palettes
+#'  Apply discrete fill scale to ggplot object using CAPD palettes
 #'
-#' @inheritParams scale_color_egrid_discrete
+#' @inheritParams scale_color_capd_discrete
 #'
 #' @export
 #'
-scale_fill_egrid_discrete <-function(palette = "fuel_type", reverse = FALSE, ...) {
+scale_fill_capd_discrete <-function(palette = "fuel_type", reverse = FALSE, ...) {
 
  ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- egrid_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal(palette = palette, reverse = reverse)
 
   ggplot2::discrete_scale("fill",
                           na.value = NA_col,
-                          palette = pal, limits=names(ggcapdthemes::egrid_palettes[[palette]]), ...)
+                          palette = pal, limits=names(ggcapdthemes::capd_palettes[[palette]]), ...)
 
 }
 
-#' @title eGRID continuous scales
+#' @title CAPD continuous scales
 #' @description
-#'  Apply continuous color scale to ggplot object using eGRID palettes
+#'  Apply continuous color scale to ggplot object using CAPD palettes
 #'
-#' @inheritParams scale_color_egrid_discrete
+#' @inheritParams scale_color_capd_discrete
 #'
 #' @export
 #'
-scale_color_egrid_continuous <- function(palette = "sequential", reverse = FALSE, ...) {
+scale_color_capd_continuous <- function(palette = "sequential", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- egrid_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal(palette = palette, reverse = reverse)
 
   ggplot2::scale_color_gradientn(colors = pal(256),
                                  na.value = NA_col,
@@ -65,20 +65,20 @@ scale_color_egrid_continuous <- function(palette = "sequential", reverse = FALSE
 
 }
 
-#' @title eGRID continuous fill scales
+#' @title CAPD continuous fill scales
 #' @description
-#'  Apply continuous fill scale to ggplot object using eGRID palettes
+#'  Apply continuous fill scale to ggplot object using CAPD palettes
 #'
-#' @inheritParams scale_color_egrid_discrete
+#' @inheritParams scale_color_capd_discrete
 #'
 #' @export
 #'
-scale_fill_egrid_continuous <- function(palette = "sequential", reverse = FALSE, ...) {
+scale_fill_capd_continuous <- function(palette = "sequential", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- egrid_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal(palette = palette, reverse = reverse)
 
   ggplot2::scale_color_gradientn(colors = pal(256),
                                  na.value = NA_col,

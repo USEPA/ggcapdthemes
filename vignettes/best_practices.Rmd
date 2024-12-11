@@ -23,14 +23,14 @@ library(ggcapdthemes)
 
 ```{r}
 ## build ggplot barplot
-p_bar <- ggplot(data = resource_mix_2022) +
+p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
   geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
            stat = 'identity') +
   labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource', 
        title = '2022 eGRID Generation Resource Mix',
        caption = 'Data from 2022 eGRID summary data, Table 2') + 
-  scale_fill_egrid_discrete(palette = 'fuel_type') +
-  theme_egrid() 
+  scale_fill_capd_discrete(palette = 'fuel_type') +
+  theme_capd() 
 ```
 
 ### Legends - reordering
@@ -78,7 +78,7 @@ p_co2 <- explorer_data %>%
   rename(co2 = `CO2 total output emission rate (lb/MWh) by eGRID subregion 2022`) %>% 
   ggplot(aes(y = Region, x = co2)) + 
   geom_bar(stat = 'identity', fill = '#2378C3') + 
-  theme_egrid()
+  theme_capd()
 
 p_co2 +
   gghighlight::gghighlight(

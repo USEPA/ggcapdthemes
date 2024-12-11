@@ -1,4 +1,4 @@
-#' Set eGRID ggplot theme
+#' Set CAPD ggplot theme
 #'
 #' @return theme object to be appended to a ggplot call
 #'
@@ -6,12 +6,12 @@
 #' @export
 #'
 #' @examples
-#' # chart ggplot mpg dataset with eGRID theme
+#' # chart ggplot mpg dataset with CAPD theme
 #' df <- ggplot2::mpg
 #' ggplot2::ggplot(df, ggplot2::aes(x=cyl, y=cty)) +
 #'   ggplot2::geom_point() +
-#'   theme_egrid()
-theme_egrid <- function(){
+#'   theme_capd()
+theme_capd <- function(){
 
   ## use default font until sysfonts kinks are worked out
   base_family <- NULL

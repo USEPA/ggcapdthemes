@@ -1,7 +1,7 @@
 
 #' Define function for retrieving color palettes
 #'
-#' @param palette name of palette, from `egrid_palettes`. Defaults to "fuel_type".
+#' @param palette name of palette, from `capd_palettes`. Defaults to "fuel_type".
 #' @param reverse logical to indicate if palette order should be reversed. Defaults to FALSE.
 #' @param ... additional arguments passed to grDevices::colorRampPalette
 
@@ -10,11 +10,11 @@
 #' @noRd
 #'
 #'
-egrid_pal <- function(palette = "fuel_type",
+capd_pal <- function(palette = "fuel_type",
                       reverse = FALSE,
                       ...) {
 
-  pal <- ggcapdthemes::egrid_palettes[[palette]]
+  pal <- ggcapdthemes::capd_palettes[[palette]]
 
   if (reverse){
     pal <- rev(pal)
