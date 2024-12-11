@@ -1,5 +1,5 @@
 ---
-title: "Using theme_egrid"
+title: "Intro to the ggcapdthemes package"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Using theme_egrid}
@@ -9,8 +9,7 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+  collapse = TRUE
 )
 ```
 
@@ -19,39 +18,15 @@ library(ggplot2)
 library(ggcapdthemes)
 ```
 
-## How to use `ggcapdthemes`
-
--   4 example chart types
-
 ## Color
 
-Discrete color palettes 
+Discrete color palettes
 
-```{r, echo = FALSE}
-
-# pals::pal.bands(
-#   egrid_palettes$fuel_type,
-#   egrid_palettes$fuel_type2,
-#   egrid_palettes$pollutant,
-#   egrid_palettes$renewables,
-#   egrid_palettes$renewables2,
-#   egrid_palettes$combustion,
-#   egrid_palettes$unordered,
-#   egrid_palettes$unordered2,
-#   
-#   labels = c('fuel_type','fuel_type2','pollutant','renewables','renewables2','combustion','unordered','unordered2'),
-#   gap = 0.25,
-#   main = 'Discrete Color Palettes'
-# )
-
-scales::show_col(egrid_palettes$fuel_type, ncol=length(egrid_palettes$fuel_type), borders = NA, labels = TRUE, cex_label = 0.8)
-text(seq_along(egrid_palettes$fuel_type) - 0.5, 0.2, stringr::str_wrap(names(egrid_palettes$fuel_type),width = 8), 
-     cex = 0.8, col = 'black')
-```
-
-Continuous color palettes
-
-```{r}
+```{r, echo=c(1,3)}
+egrid_palettes$fuel_type
+knitr::include_graphics('images/main-fuel-type.svg')
+egrid_palettes$pollutant
+knitr::include_graphics('images/poluttant-palette.svg')
 
 ```
 
