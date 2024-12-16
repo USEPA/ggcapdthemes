@@ -14,8 +14,12 @@ Set CAPD ggplot theme
 }
 \examples{
 # chart ggplot mpg dataset with CAPD theme
-df <- ggplot2::mpg
-ggplot2::ggplot(df, ggplot2::aes(x=cyl, y=cty)) +
-  ggplot2::geom_point() +
-  theme_capd()
+df <- resource_mix[resource_mix$year == 2022,]
+p_bar <- ggplot(data = df) +
+geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
+        stat = 'identity') +
+ labs(x = 'Generation Resource Mix (\%)', y = 'Resource', fill = 'Resource',
+      title = '2022 eGRID Generation Resource Mix',
+      caption = 'Data from 2022 eGRID summary data, Table 2')
+p_bar + theme_capd()
 }
