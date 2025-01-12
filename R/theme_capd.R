@@ -7,6 +7,7 @@
 #'
 #' @examples
 #' # chart ggplot mpg dataset with CAPD theme
+#' library(ggplot2)
 #' df <- resource_mix[resource_mix$year == 2022,]
 #' p_bar <- ggplot(data = df) +
 #' geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
@@ -18,8 +19,17 @@
 
 theme_capd <- function(){
 
+  suppressMessages(
+    trace(grDevices::png, exit = quote({
+    showtext::showtext_begin()
+  }), print = FALSE)
+  )
+
+  suppressMessages(  untrace(grDevices::png))
+  showtext::showtext_begin()
+
   ## use default font until sysfonts kinks are worked out
-  base_family <- NULL
+  base_family <- 'Source Sans 3'
   th <- list(
     ggplot2::theme_bw() %+replace%
       theme(
@@ -45,10 +55,12 @@ theme_capd <- function(){
         axis.text = element_text(family = base_family),
         ## format legend
         legend.text = element_text(family = base_family),
-        legend.title = element_text(),
+        legend.title = element_text(family = base_family),
 
       )
   )
+
+  showtext::showtext_end()
 
   return(th)
 }
