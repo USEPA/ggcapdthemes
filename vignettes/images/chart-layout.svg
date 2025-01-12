@@ -1,0 +1,57 @@
+<svg width="820" height="442" viewBox="0 0 820 442" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="820" height="442" rx="5" fill="white"/>
+<rect x="150" y="352" width="458" height="12" fill="#E41D3D" fill-opacity="0.1"/>
+<rect x="605" y="124" width="69" height="56" fill="#E41D3D" fill-opacity="0.1"/>
+<rect x="120" y="50" width="433" height="13" fill="#E41D3D" fill-opacity="0.1"/>
+<rect x="120" y="28" width="433" height="21" fill="#E41D3D" fill-opacity="0.1"/>
+<line x1="156" y1="248.5" x2="596" y2="248.5" stroke="#C9C9C9" stroke-dasharray="3 3"/>
+<line x1="156" y1="295.5" x2="596" y2="295.5" stroke="#C9C9C9" stroke-dasharray="3 3"/>
+<line x1="157" y1="201.5" x2="597" y2="201.5" stroke="#C9C9C9" stroke-dasharray="3 3"/>
+<line x1="157" y1="154.5" x2="597" y2="154.5" stroke="#C9C9C9" stroke-dasharray="3 3"/>
+<line x1="157" y1="107.5" x2="597" y2="107.5" stroke="#C9C9C9" stroke-dasharray="3 3"/>
+<line x1="157" y1="341.5" x2="597" y2="341.5" stroke="#2E2E2E"/>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="156" y="361.418">2002</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="137.051" y="345.418">0%</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="131.426" y="252.418">20%</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="131.426" y="299.418">10%</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="131.426" y="205.418">30%</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="131.426" y="158.418">40%</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="131.426" y="111.418">50%</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="212.25" y="361.418">2005</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="322.25" y="361.418">2010</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="432.25" y="361.418">2015</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="542.25" y="361.418">2020</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="576.25" y="361.418">2022</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" letter-spacing="0em"><tspan x="125" y="43.7852">ABCD&#x2019;s Use of Non-Combustible Fuels remains above U.S. Average</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="125" y="59.418">Percent of resource mix coming from non-combustible fuels, ABCD vs U.S. average, 2002-2022</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" font-weight="bold" letter-spacing="0em"><tspan x="125" y="93.418">Resource Mix (%)</tspan></text>
+<line x1="157.5" y1="344" x2="157.5" y2="350" stroke="#2E2E2E"/>
+<line x1="223.5" y1="344" x2="223.5" y2="350" stroke="#2E2E2E"/>
+<line x1="333.5" y1="344" x2="333.5" y2="350" stroke="#2E2E2E"/>
+<line x1="443.5" y1="344" x2="443.5" y2="350" stroke="#2E2E2E"/>
+<line x1="553.5" y1="344" x2="553.5" y2="350" stroke="#2E2E2E"/>
+<line x1="596.5" y1="344" x2="596.5" y2="350" stroke="#2E2E2E"/>
+<path d="M157.5 175L179.5 208L201 201L223.5 228.5L246 237.5L267.5 228.5L290 224L311 232L334 224L356 212L378.5 201H399.5L422 208L444 194.5L465 172L487.5 146.5L509.5 136L531 143.5H553.5L575 146.5L597.5 136" stroke="#2378C3" stroke-width="2" stroke-linecap="round"/>
+<path d="M597.5 174L575.5 188.5L554 200.5L531.5 209.5L509 200.5L487.5 209.5L465 214L444 251L421 249.5L399 255L376.5 237H355.5L333 230L311 243.5L290 266L267.5 291.5L245.5 302L224 294.5H201.5L180 291.5L157.5 302" stroke="#5C5C5C" stroke-width="2" stroke-linecap="round"/>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="613" y="140.418">ABCD</tspan></text>
+<text fill="#2E2E2E" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="613" y="175.418">U.S. Average</tspan></text>
+<path d="M608.5 132L608.5 141" stroke="#2378C3" stroke-width="3" stroke-linecap="round"/>
+<path d="M608.5 167L608.5 176" stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"/>
+<rect x="120" y="79" width="92" height="21" fill="#E41D3D" fill-opacity="0.1"/>
+<rect x="120" y="102" width="32" height="243" fill="#E41D3D" fill-opacity="0.1"/>
+<rect x="150" y="343" width="458" height="7" fill="#E41D3D" fill-opacity="0.1"/>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="67.2969" y="88.418">Y-axis title </tspan><tspan x="69.875" y="100.418">with units</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="30.041" y="189.418">Y-axis labels; right-</tspan><tspan x="23.5664" y="201.418">aligned, centered on </tspan><tspan x="75.0605" y="213.418">gridlines</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="611" y="363.418">X-axis labels; centered aligned </tspan><tspan x="611" y="375.418">except for first and last</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="611" y="350.418">X-axis ticks</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="627" y="329.418">Zero line; should be solid in </tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" font-weight="bold" letter-spacing="0em"><tspan x="750.105" y="329.418">#2E2E2E</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="621" y="212.418">Gridlines; should be </tspan><tspan x="621" y="224.418">dashed in </tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" font-weight="bold" letter-spacing="0em"><tspan x="666.625" y="224.418">#C9C9C9</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="605" y="120.418">Legend</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="93.5957" y="43.418">Title</tspan></text>
+<text fill="#E41D3D" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="10" letter-spacing="0em"><tspan x="79.2207" y="59.418">Subtitle</tspan></text>
+<path d="M599 341.5H608V326H621.5" stroke="#E41D3D"/>
+<path d="M593 300H602.2V217H616" stroke="#E41D3D"/>
+<path d="M593 104H602.2V215H616" stroke="#E41D3D"/>
+</svg>
