@@ -1,6 +1,10 @@
 ---
 title: "Best Practices"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+    code_folding: hide
 vignette: >
   %\VignetteIndexEntry{Best Practices}
   %\VignetteEngine{knitr::rmarkdown}
@@ -10,18 +14,18 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",fig.width=6, fig.height=4, fig.path='images/best-practices/',dev='svg'
 )
 ```
 
-```{r setup}
+```{r setup, }
 library(ggplot2)
 library(ggcapdthemes)
 ```
 
-## Initial plot
+## Introduction
 
-```{r}
+```{r initial-plot, echo=FALSE}
 ## build ggplot barplot
 p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
   geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
@@ -33,15 +37,18 @@ p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
   theme_capd() 
 ```
 
-### Legends - reordering
+## Color as highlight
 
-```{r}
+This theme includes both quantitative and categorical color palettes. However, there are some situations where you might
+not want to use a whole palette; instead, you might want to use color to draw attention only to specific parts of a chart
+without overwhelming the user. For more details on using color as a highlight, see the of the Data
+Visualization Style Guide.
 
-```
+### Before 
 
-### Color as highlight
+### Applying the Code
 
-Using the `gghighlight` package to assist
+Using the `gghighlight` package to assist, we can emphasize certain groups or elements of charts.
 
 #### Highlighting discrete colors
 
@@ -61,22 +68,9 @@ p_bar + gghighlight::gghighlight(
 
 #### Highlighting continuous colors
 
-```{r}
-p_bar + gghighlight::gghighlight(
-  resource == 'gas',
-  unhighlighted_params = list(
-    #fill = '#919191',
-    fill = '#C9C9C9', 
-    color = '#2E2E2E',
-                              linewidth = 0.2) 
-)
-```
-
 ```{r, eval=F}
 
-p_co2 <- explorer_data %>% 
-  rename(co2 = `CO2 total output emission rate (lb/MWh) by eGRID subregion 2022`) %>% 
-  ggplot(aes(y = Region, x = co2)) + 
+p_co2 <- ggplot(co2_emission_2022, aes(y = Region, x = co2)) + 
   geom_bar(stat = 'identity', fill = '#2378C3') + 
   theme_capd()
 
@@ -84,19 +78,100 @@ p_co2 +
   gghighlight::gghighlight(
     Region == 'NYUP',
     unhighlighted_params = list(
-    #fill = '#919191',
-    fill = '#C9C9C9', 
-    #color = '#2E2E2E',
-                              linewidth = 0.2) 
+      fill = '#C9C9C9', 
+      linewidth = 0.2
+    ) 
   )
 
 ```
 
-### Tooltips
+<a href="#TOC">Return to Table of Contents</a>
 
-### Data labels
+## Legends
 
-### Data accessibility
+Legends are most helpful and accessible when they are directly attached to the relevant data elements. If that isn’t
+possible, keeping them as close as possible to the data elements is a good compromise. For more details on legend design,
+see the of the Data Visualization dedicated section Style Guide.
+
+### Before 
+
+By default, ggplot sorts character variables for color / fill alphabetically from A to Z. Sometimes this is desired, other times there are more useful orders for aligning to the data at hand.
+
+```{r, echo = T}
+ggplot(data = so2_aq,
+       aes(x=year, y=value, color=stat)) +
+  geom_line() +
+  labs(color = 'Statistic') + 
+  theme_capd()
+```
+
+### Applying the Code
+
+#### Sorting legend
+
+Using the `fct_reorder2` function from the `forcats` tidyverse package, you can easily reorder columns by another columns value. This allows the legend categories to go in order of highest to lowest value.
+
+```{r}
+ggplot(so2_aq,
+       aes(x=year, y=value, color = forcats::fct_reorder2(stat, year, value))) +
+  geom_line() +
+  labs(color = 'Statistic') + 
+  theme_capd()
+
+```
+
+#### Adding direct labels on your chart
+
+Through the help of the `directlabels` package, you can also add labels directly onto a ggplot for easier context. Here we add them to the end of the lines using the `method = 'last.qp'` argument.
+
+```{r}
+p_direct <- ggplot(so2_aq, aes(x=year, y=value, color=stat)) +
+              geom_line() +
+              labs(color='Statistic', y = 'SO_2 Air Quality') + 
+              theme_capd()
+
+directlabels::direct.label(p_direct, method = 'last.qp')
+directlabels::direct.label(p_direct, method = 'first.qp')
+
+```
+
+<a href="#TOC">Return to Table of Contents</a>
+
+## Tooltips
+
+Tooltips that call out names, values, and style (color, stroke pattern, etc.) of individual data elements can help make those
+data points easier to identify in your chart. For more details on tooltip design, see the of the Data
+Visualization Style Guide.
+
+### Before 
+
+### Applying the Code
+
+```{r}
+## Placeholder for code
+```
+
+### After
+
+<a href="#TOC">Return to Table of Contents</a>
+
+## Data labels
+
+Like tooltips, data labels can help make individual or important data points easier to identify
+
+<a href="#TOC">Return to Table of Contents</a>
+
+## Alt text for charts 
+
+Alternative text helps make charts more accessible for users who cannot rely on visuals. Alt text should be specific and
+detailed but not overly wordy; it can be used in combination with other, non-visual representations of the same data, such as tables or direct downloads.
+
+<a href="#TOC">Return to Table of Contents</a>
+
+## Other Data Accessibility
+
+Another way to make your charts more accessible is to provide the underlying data directly to users either by providing data
+tables near their respective charts, or by allowing users to download that data.
 
 #### Contrast
 
@@ -104,6 +179,18 @@ p_co2 +
 
 #### Additional Encodings
 
-#### Alt text for charts
+<a href="#TOC">Return to Table of Contents</a>
 
-### Fuel Type icons
+## Fuel Type icons
+
+The eleven most commonly used fuel types in CAPD are represented by icons; you can include these icons where applicable
+in your ggplot2 charts. For more details on integrating these icons (and how to use them appropriately), see the
+of the Data Visualization Style Guide.
+
+<a href="#TOC">Return to Table of Contents</a>
+
+## Adding Logos and Images
+
+Similarly to the fuel type icons, other logos and images can be incorporated into your ggplot2 charts.
+
+<a href="#TOC">Return to Table of Contents</a>
