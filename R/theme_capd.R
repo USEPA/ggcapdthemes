@@ -19,6 +19,10 @@
 
 theme_capd <- function(){
 
+  if(!('Source Sans 3' %in% sysfonts::font_families())){
+    sysfonts::font_add_google('Source Sans 3')
+  }
+
   suppressMessages(
     trace(grDevices::png, exit = quote({
     showtext::showtext_begin()
