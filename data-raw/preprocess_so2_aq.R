@@ -9,16 +9,4 @@ so2_aq <- so2_aq_orig |>
   select(year, avg, q10, q90, units) |>
   mutate(year = as.numeric(year))
 
-so2_aq |>
-  pivot_longer(cols = c(avg, q10, q90), names_to = 'stat', values_to = 'value') |>
-  ggplot(aes(x=year, y=value, color=stat)) +
-  geom_line() +
-  labs(color='Statistic', y = 'SO_2 Air Quality')
-
-so2_aq |>
-  pivot_longer(cols = c(avg, q10, q90), names_to = 'stat', values_to = 'value') |>
-  ggplot(aes(x=year, y=value, color=fct_reorder2(stat,year,value))) +
-  geom_line() +
-  labs(color = 'Statistic')
-
-
+usethis::use_data(so2_aq, overwrite = TRUE)
