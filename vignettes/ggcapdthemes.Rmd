@@ -12,7 +12,6 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  fig.path=''
 )
 ```
 
@@ -21,7 +20,7 @@ knitr::opts_chunk$set(
 Welcome! This vignette will demonstrate how the EPA CAPD Data Visualization Style Guide can be integrated into your R visualizations. Through the use of the `{ggcapdthemes}` package and the `theme_capd` function, you can easily customize and standardize your ggplots!
 
 ```{r, echo = FALSE}
-knitr::include_graphics('./images/chart-layout.svg')
+knitr::include_graphics('chart-layout.svg')
 ```
 
 Because this package heavily depends on ggplot2, we suggest loading it prior to loading `ggcapdthemes`.
@@ -150,14 +149,14 @@ legend.title = element_text()
 
 ```{r, echo=1}
 capd_palettes$fuel_type
-knitr::include_graphics('images/main-fuel-type.svg')
+knitr::include_graphics('main-fuel-type.svg')
 ```
 
 #### Pollutant
 
 ```{r, echo=F}
 capd_palettes$pollutant
-knitr::include_graphics('images/poluttant-palette.svg')
+knitr::include_graphics('poluttant-palette.svg')
 ```
 
 
