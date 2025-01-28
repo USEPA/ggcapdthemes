@@ -36,10 +36,11 @@ library(ggcapdthemes)
 ## build ggplot barplot
 p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
   geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
-           stat = 'identity') +
+           stat = 'identity') + 
   labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource', 
        title = '2022 eGRID Generation Resource Mix',
-       caption = 'Data from 2022 eGRID summary data, Table 2')
+       caption = 'Data from 2022 eGRID summary data, Table 2') +
+  scale_x_continuous(expand = c(0,0))
 
 ## original chart
 p_bar
@@ -50,7 +51,7 @@ p_bar
 ``` r
 
 ## with capd theme
-p_bar + theme_capd()
+p_bar + theme_capd(orientation = 'vert')
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
@@ -58,9 +59,9 @@ p_bar + theme_capd()
 ``` r
 
 ## with fuel type color palette and capd theme
-p_bar + 
+p_bar +
   scale_fill_capd_discrete(palette = 'fuel_type') +
-  theme_capd() 
+  theme_capd(orientation = 'vert') 
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
