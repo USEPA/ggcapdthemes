@@ -4,7 +4,7 @@
 \alias{theme_capd}
 \title{Set CAPD ggplot theme}
 \usage{
-theme_capd()
+theme_capd(base_size = 11, orientation = "horiz")
 }
 \value{
 theme object to be appended to a ggplot call
