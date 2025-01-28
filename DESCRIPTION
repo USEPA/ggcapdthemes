@@ -27,5 +27,6 @@ Suggests:
     gghighlight,
     knitr,
     pals,
-    rmarkdown
+    rmarkdown,
+    scales
 VignetteBuilder: knitr
