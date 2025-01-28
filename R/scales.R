@@ -12,11 +12,11 @@
 scale_color_capd_discrete <- function(palette = "fuel_type", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
-  NA_col = NA
+  NA_col = ''
 
-  pal <- capd_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal_d(palette = palette, reverse = reverse)
 
-  ggplot2::discrete_scale("color", pal,
+  ggplot2::discrete_scale("color",
                           na.value = NA_col,
                           palette = pal, ...)
 
@@ -36,7 +36,7 @@ scale_fill_capd_discrete <-function(palette = "fuel_type", reverse = FALSE, ...)
  ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- capd_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal_d(palette = palette, reverse = reverse)
 
   ggplot2::discrete_scale("fill",
                           na.value = NA_col,
@@ -57,7 +57,7 @@ scale_color_capd_continuous <- function(palette = "sequential", reverse = FALSE,
   ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- capd_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal_c(palette = palette, reverse = reverse)
 
   ggplot2::scale_color_gradientn(colors = pal(256),
                                  na.value = NA_col,
@@ -78,10 +78,36 @@ scale_fill_capd_continuous <- function(palette = "sequential", reverse = FALSE, 
   ## Color for missing data - by default, it will not be plotted
   NA_col = NA
 
-  pal <- capd_pal(palette = palette, reverse = reverse)
+  pal <- capd_pal_c(palette = palette, reverse = reverse)
 
-  ggplot2::scale_color_gradientn(colors = pal(256),
+  ggplot2::scale_fill_gradientn(colors = pal(256),
                                  na.value = NA_col,
                                  ...)
+
+}
+
+scale_fill_capd_binned <- function(palette = "sequential", reverse = FALSE, ...) {
+
+  ## Color for missing data - by default, it will not be plotted
+  NA_col = NA
+
+ # pal <- capd_pal_d(palette = palette, reverse = reverse)
+  pal <- capd_palettes[[palette]]
+  binned_scale('fill',palette = scales::pal_gradient_n(pal),
+               guide='coloursteps',n.breaks=length(pal),
+                                ...)
+
+}
+
+scale_color_capd_binned <- function(palette = "sequential", reverse = FALSE, ...) {
+
+  ## Color for missing data - by default, it will not be plotted
+  NA_col = NA
+
+  # pal <- capd_pal_d(palette = palette, reverse = reverse)
+  pal <- capd_palettes[[palette]]
+  binned_scale('color',palette = scales::pal_gradient_n(pal),
+               guide='coloursteps',n.breaks=length(pal),
+               ...)
 
 }
