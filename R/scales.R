@@ -1,4 +1,6 @@
 
+globalVariables(c("capd_palettes"))
+
 #' @title CAPD discrete color scales
 #' @description
 #'  Apply discrete color scale to ggplot object using CAPD palettes
@@ -93,7 +95,7 @@ scale_fill_capd_binned <- function(palette = "sequential", reverse = FALSE, ...)
 
  # pal <- capd_pal_d(palette = palette, reverse = reverse)
   pal <- capd_palettes[[palette]]
-  binned_scale('fill',palette = scales::pal_gradient_n(pal),
+  ggplot2::binned_scale('fill',palette = scales::pal_gradient_n(pal),
                guide='coloursteps',n.breaks=length(pal),
                                 ...)
 
@@ -106,7 +108,7 @@ scale_color_capd_binned <- function(palette = "sequential", reverse = FALSE, ...
 
   # pal <- capd_pal_d(palette = palette, reverse = reverse)
   pal <- capd_palettes[[palette]]
-  binned_scale('color',palette = scales::pal_gradient_n(pal),
+  ggplot2::binned_scale('color',palette = scales::pal_gradient_n(pal),
                guide='coloursteps',n.breaks=length(pal),
                ...)
 

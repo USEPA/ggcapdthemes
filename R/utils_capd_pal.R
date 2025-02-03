@@ -2,6 +2,7 @@
 min_colors <- c('divergent' = 2,'divergent2' = 2,'sequential' = 3,'unordered' = 2, 'unordered2' = 2)
 max_colors <-  c('divergent' = 7,'divergent2' = 7,'sequential' = 7,'unordered' = 5, 'unordered2' = 5)
 
+globalVariables(c("capd_palettes"))
 
 
 #' Define function for retrieving color palettes
@@ -83,7 +84,11 @@ capd.pal <- function(n, name){
          'renewables2' = c('Non-renewable'='#EF5E25','Renewable'='#8A984B'),
 
          ## Consolidated fuel type: combustion
-         'combustion' = c('Combustion' = '#EF5E25','Non-combustion'='#2378C3')
+         'combustion' = c('Combustion' = '#EF5E25','Non-combustion'='#2378C3'),
+
+         ## pollutant
+         'pollutant' = c('CO2' = '#CD425B', 'NOx'='#2378C3','SO2'='#9287D8','Hg'='#C84281','PM2.5'='#8A984B',
+                         'CH4'='#B04ABD','N2O'='#919191','SF6'='#4D8055')
 
   )
 }
