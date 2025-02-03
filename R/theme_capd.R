@@ -1,8 +1,11 @@
-#' Set CAPD ggplot theme
+#' @title Set CAPD ggplot theme
 #'
+#' @param base_size font size, in pt
+#' @param orientation direction to use for gridlines
+#' @param gridlines should both major and minor gridlines ("both") or major only ("major") be displayed?
 #' @return theme object to be appended to a ggplot call
 #'
-#' @importFrom ggplot2 theme element_text element_line element_blank element_rect %+replace%
+#' @importFrom ggplot2 theme element_text element_line element_blank element_rect %+replace% rel margin
 #' @export
 #'
 #' @examples
@@ -17,7 +20,8 @@
 #'       caption = 'Data from 2022 eGRID summary data, Table 2')
 #' p_bar + theme_capd()
 
-theme_capd <- function(base_size=11, orientation = "horiz"){
+theme_capd <- function(base_size=11, orientation = "horiz",
+                       gridlines = 'both'){
 
   if(!('Source Sans 3' %in% sysfonts::font_families())){
     sysfonts::font_add_google('Source Sans 3')
@@ -28,6 +32,16 @@ theme_capd <- function(base_size=11, orientation = "horiz"){
     showtext::showtext_begin()
   }), print = FALSE)
   )
+
+  if(gridlines == 'both'){
+    panel.grid <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
+    panel.grid.minor <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
+  } else if(gridlines == 'major'){
+    panel.grid <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
+    panel.grid.minor <- element_blank()
+  } else{
+    stop('Please use either "both" or "major" for the gridlines argument.')
+  }
 
   suppressMessages(  untrace(grDevices::png))
   showtext::showtext_begin()
@@ -42,9 +56,9 @@ theme_capd <- function(base_size=11, orientation = "horiz"){
                                     colour = "black", size = base_size),
 
         ## format title, subtitle, caption
-        plot.title= element_text(hjust = 0, size = rel(1.2), family = base_family, margin = margin(b = half_line)),
-        plot.subtitle = element_text(hjust = 0, family = base_family, margin = margin(b = half_line)),
-        plot.caption = element_text(family = base_family, size = rel(0.8)),
+        plot.title= element_text(hjust = 0, size = ggplot2::rel(1.2), family = base_family, margin = ggplot2::margin(b = half_line)),
+        plot.subtitle = element_text(hjust = 0, family = base_family, margin = ggplot2::margin(b = half_line)),
+        plot.caption = element_text(family = base_family, size = ggplot2::rel(0.8)),
 
         ## format plot background
         ## change background color
@@ -53,17 +67,17 @@ theme_capd <- function(base_size=11, orientation = "horiz"){
         panel.border = element_blank(),
 
         ## gridlines
-        panel.grid = element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = rel(1)),
-        panel.grid.minor = element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = rel(1)),
+        panel.grid = panel.grid,
+        panel.grid.minor = panel.grid.minor,
         axis.line = element_line(color = '#2e2e2e', linetype = 'solid'),
 
         ## format axes
         axis.title = element_text(family = base_family),
         #axis.title.y = element_text(vjust = 1, angle=0,hjust = 1),#,margin=margin(l=0,r=-100)),
         axis.ticks = element_blank(),
-        axis.text = element_text(family = base_family, size=rel(0.8)),
+        axis.text = element_text(family = base_family, size=ggplot2::rel(0.8)),
         ## format legend
-        legend.text = element_text(family = base_family, size = rel(0.8)),
+        legend.text = element_text(family = base_family, size = ggplot2::rel(0.8)),
         legend.title = element_text(family = base_family, ),
 
       )

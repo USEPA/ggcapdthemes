@@ -4,7 +4,14 @@
 \alias{theme_capd}
 \title{Set CAPD ggplot theme}
 \usage{
-theme_capd(base_size = 11, orientation = "horiz")
+theme_capd(base_size = 11, orientation = "horiz", gridlines = "both")
+}
+\arguments{
+\item{base_size}{font size, in pt}
+
+\item{orientation}{direction to use for gridlines}
+
+\item{gridlines}{should both major and minor gridlines ("both") or major only ("major") be displayed?}
 }
 \value{
 theme object to be appended to a ggplot call
