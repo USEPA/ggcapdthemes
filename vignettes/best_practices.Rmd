@@ -148,7 +148,14 @@ Visualization Style Guide.
 ### Applying the Code
 
 ```{r}
-## Placeholder for code
+p_so2 <-ggplot(so2_aq,
+       aes(x=year, y=value, color = stat)) +
+  geom_line() +
+  labs(color = 'Statistic') + 
+  scale_color_capd_discrete(palette = 'sequential') +
+  theme_capd()
+
+plotly::ggplotly(p_so2)
 ```
 
 ### After
@@ -166,6 +173,19 @@ Like tooltips, data labels can help make individual or important data points eas
 Alternative text helps make charts more accessible for users who cannot rely on visuals. Alt text should be specific and
 detailed but not overly wordy; it can be used in combination with other, non-visual representations of the same data, such as tables or direct downloads.
 
+### Including Alt text manually
+
+```{r, fig.alt='My alt text here'}
+p_bar_alt <- p_bar + theme(legend.position='none') +labs(alt = 'My alt text here')
+
+p_bar_alt
+```
+
+### Generating alt text template
+
+```{r,}
+ggalttext::generate_alt_text(p_bar)
+```
 <a href="#TOC">Return to Table of Contents</a>
 
 ## Other Data Accessibility
@@ -173,11 +193,16 @@ detailed but not overly wordy; it can be used in combination with other, non-vis
 Another way to make your charts more accessible is to provide the underlying data directly to users either by providing data
 tables near their respective charts, or by allowing users to download that data.
 
-#### Contrast
 
 #### Color-Blindness
 
-#### Additional Encodings
+Variations of color accessibility can be assessed using the `colorblindr` package.
+
+```{r, echo=1, eval=1,fig.width=10, fig.height=10}
+colorblindr::cvd_grid(p_bar)
+suppressWarnings(colorblindr::cvd_grid(p_bar+theme(legend.position='none')))
+```
+
 
 <a href="#TOC">Return to Table of Contents</a>
 
