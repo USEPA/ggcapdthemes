@@ -109,7 +109,7 @@ plot.caption = element_text(family = base_family, size = rel(0.8))
 base_family <- 'Source Sans 3'
 base_size <- 10
 half_line <- base_size/2
-sysfonts::font_add_google(base_family)
+#sysfonts::font_add_google(base_family)
 p_line + 
   ggplot2::theme_bw(base_size=10) %+replace%
   theme(

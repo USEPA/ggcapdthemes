@@ -11,6 +11,7 @@
 #' @examples
 #' # chart ggplot mpg dataset with CAPD theme
 #' library(ggplot2)
+#' library(ggcapdthemes)
 #' df <- resource_mix[resource_mix$year == 2022,]
 #' p_bar <- ggplot(data = df) +
 #' geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
@@ -23,15 +24,18 @@
 theme_capd <- function(base_size=11, orientation = "horiz",
                        gridlines = 'both'){
 
-  if(!('Source Sans 3' %in% sysfonts::font_families())){
-    sysfonts::font_add_google('Source Sans 3')
-  }
+  # if(!('source-sans-3' %in% sysfonts::font_families())){
+  #   sysfonts::font_add_google('Source Sans 3',family = 'source-sans-3')
+  # }
 
-  suppressMessages(
-    trace(grDevices::png, exit = quote({
-    showtext::showtext_begin()
-  }), print = FALSE)
-  )
+  #extrafont::font_import(pattern='Source Sans 3',prompt=F)
+  #extrafont::loadfonts(quiet = TRUE)
+  #extrafont::font_import(pattern='Source Sans 3',prompt=F)
+  # suppressMessages(
+  #   trace(grDevices::png, exit = quote({
+  #   showtext::showtext_begin()
+  # }), print = FALSE)
+  # )
 
   if(gridlines == 'both'){
     panel.grid <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
@@ -43,8 +47,16 @@ theme_capd <- function(base_size=11, orientation = "horiz",
     stop('Please use either "both" or "major" for the gridlines argument.')
   }
 
-  suppressMessages(  untrace(grDevices::png))
-  showtext::showtext_begin()
+  if(orientation == 'vert'){
+    axis.line.x = element_blank()
+    axis.line.y = element_line(color = '#2e2e2e', linetype = 'solid')
+  } else if(orientation == 'horiz'){
+    axis.line.x = element_line(color = '#2e2e2e', linetype = 'solid')
+    axis.line.y = element_blank()
+  }
+
+  #suppressMessages(  untrace(grDevices::png))
+  #showtext::showtext_begin()
 
   ## use default font until sysfonts kinks are worked out
   base_family <- 'Source Sans 3'
@@ -69,8 +81,9 @@ theme_capd <- function(base_size=11, orientation = "horiz",
         ## gridlines
         panel.grid = panel.grid,
         panel.grid.minor = panel.grid.minor,
-        axis.line = element_line(color = '#2e2e2e', linetype = 'solid'),
-
+        #axis.line = element_line(color = '#2e2e2e', linetype = 'solid'),
+        axis.line.x = axis.line.x,
+        axis.line.y = axis.line.y,
         ## format axes
         axis.title = element_text(family = base_family),
         #axis.title.y = element_text(vjust = 1, angle=0,hjust = 1),#,margin=margin(l=0,r=-100)),
@@ -95,7 +108,7 @@ theme_capd <- function(base_size=11, orientation = "horiz",
   }
 
 
-  showtext::showtext_end()
+  #showtext::showtext_end()
 
   return(th)
 }
