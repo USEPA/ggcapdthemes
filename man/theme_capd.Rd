@@ -22,6 +22,7 @@ Set CAPD ggplot theme
 \examples{
 # chart ggplot mpg dataset with CAPD theme
 library(ggplot2)
+library(ggcapdthemes)
 df <- resource_mix[resource_mix$year == 2022,]
 p_bar <- ggplot(data = df) +
 geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),

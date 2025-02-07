@@ -14,7 +14,7 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",fig.width=6, fig.height=4, fig.path='images/best-practices/',dev='svg'
+  comment = "#>",fig.width=8, fig.height=4, dev='svg'
 )
 ```
 
@@ -23,6 +23,12 @@ library(ggplot2)
 library(ggcapdthemes)
 extrafont::loadfonts(quiet=T)
 ```
+
+```{css, echo=F}
+.inline-figure {
+  border: none !important;
+}
+
 ```
 
 ## Introduction
@@ -36,7 +42,8 @@ p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
        title = '2022 eGRID Generation Resource Mix',
        caption = 'Data from 2022 eGRID summary data, Table 2') + 
   scale_fill_capd_discrete(palette = 'fuel_type') +
-  theme_capd() 
+  scale_x_continuous(expand=c(0,0)) +
+  theme_capd(orientation = 'vert') 
 ```
 
 ## Color as highlight
