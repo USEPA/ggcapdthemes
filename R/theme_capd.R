@@ -1,8 +1,10 @@
 #' @title Set CAPD ggplot theme
 #'
 #' @param base_size font size, in pt
-#' @param orientation direction to use for gridlines
-#' @param gridlines should both major and minor gridlines ("both") or major only ("major") be displayed?
+#' @param plot_direction direction to use for axis and grid lines. "horiz", "vert", "both
+#' @param grid_lines should both major and minor gridlines ("both") or major only ("major") be displayed?
+#' @param legend_position side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of theme
+#'
 #' @return theme object to be appended to a ggplot call
 #'
 #' @importFrom ggplot2 theme element_text element_line element_blank element_rect %+replace% rel margin
@@ -21,31 +23,70 @@
 #'       caption = 'Data from 2022 eGRID summary data, Table 2')
 #' p_bar + theme_capd()
 
-theme_capd <- function(base_size=11, orientation = "horiz",
-                       gridlines = 'both'){
+theme_capd <- function(base_size=11, plot_direction = "horiz",
+                       grid_lines = 'major', legend_position = 'right'){
 
-  if(gridlines == 'both'){
-    panel.grid <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
-    panel.grid.minor <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
-  } else if(gridlines == 'major'){
-    panel.grid <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
-    panel.grid.minor <- element_blank()
-  } else{
-    stop('Please use either "both" or "major" for the gridlines argument.')
+  if(is.na(as.numeric(base_size)) | is.nan(as.numeric(base_size))){
+    warning('No valid base_size provided. Setting to 11pt.')
   }
 
-  if(orientation == 'vert'){
-    axis.line.x = element_blank()
-    axis.line.y = element_line(color = '#2e2e2e', linetype = 'solid')
-  } else if(orientation == 'horiz'){
-    axis.line.x = element_line(color = '#2e2e2e', linetype = 'solid')
-    axis.line.y = element_blank()
+  if(length(grid_lines) == 0){
+    warning('No grid_lines value provided. Setting to "major".')
+    grid_lines <- 'major'
+  } else if(length(grid_lines) > 2){
+    warning('Too many grid_lines values provided. Setting to "major".')
+    grid_lines <- 'major'
   }
 
-
-  ## use default font until sysfonts kinks are worked out
   base_family <- 'Source Sans 3'
   half_line <- base_size/2
+  panel.grid <- element_line(color = '#c9c9c9',linetype = 'dashed',
+                             linewidth = rel(0.8))
+  axis.line = element_line(color = '#2e2e2e', linetype = 'solid')
+
+
+  if('minor' %in% grid_lines){
+    panel.grid.minor <- panel.grid
+  } else {
+    panel.grid.minor <- element_blank()
+  }
+
+  if('major' %in% grid_lines){
+    panel.grid.major <- panel.grid
+  } else {
+    panel.grid.major <- element_blank()
+  }
+
+  if(plot_direction == 'vert'){
+    axis.line.x <- element_blank()
+    axis.line.y <- axis.line
+
+    panel.grid.major.x <- panel.grid.major
+    panel.grid.minor.x <- panel.grid.minor
+
+    panel.grid.major.y <- element_blank()
+    panel.grid.minor.y <- element_blank()
+
+  } else if(plot_direction == 'horiz'){
+    axis.line.x = axis.line
+    axis.line.y = element_blank()
+
+    panel.grid.major.x <- element_blank()
+    panel.grid.minor.x <- element_blank()
+
+    panel.grid.major.y <- panel.grid.major
+    panel.grid.minor.y <- panel.grid.minor
+  } else if(plot_direction == 'both'){
+    axis.line.x <- axis.line
+    axis.line.y <- axis.line
+
+    panel.grid.major.x <- panel.grid.major
+    panel.grid.minor.x <- panel.grid.minor
+
+    panel.grid.major.y <- panel.grid.major
+    panel.grid.minor.y <- panel.grid.minor
+  }
+
   th <- list(
     ggplot2::theme_bw(base_size=base_size) %+replace%
       theme(
@@ -53,9 +94,9 @@ theme_capd <- function(base_size=11, orientation = "horiz",
                                     colour = "black", size = base_size),
 
         ## format title, subtitle, caption
-        plot.title= element_text(hjust = 0, size = ggplot2::rel(1.2), family = base_family, margin = ggplot2::margin(b = half_line)),
-        plot.subtitle = element_text(hjust = 0, family = base_family, margin = ggplot2::margin(b = half_line)),
-        plot.caption = element_text(family = base_family, size = ggplot2::rel(0.8)),
+        plot.title= element_text(hjust = 0, size = rel(1.2), family = base_family, margin = margin(b = half_line)),
+        plot.subtitle = element_text(hjust = 0, family = base_family, margin = margin(b = half_line)),
+        plot.caption = element_text(family = base_family, size = rel(0.8)),
 
         ## format plot background
         ## change background color
@@ -65,32 +106,31 @@ theme_capd <- function(base_size=11, orientation = "horiz",
 
         ## gridlines
         panel.grid = panel.grid,
+        panel.grid.major = panel.grid,
         panel.grid.minor = panel.grid.minor,
-        #axis.line = element_line(color = '#2e2e2e', linetype = 'solid'),
+        panel.grid.major.x = panel.grid.major.x,
+        panel.grid.minor.x = panel.grid.minor.x,
+        panel.grid.major.y = panel.grid.major.y,
+        panel.grid.minor.y = panel.grid.minor.y,
+
+        axis.line = axis.line,
         axis.line.x = axis.line.x,
         axis.line.y = axis.line.y,
         ## format axes
         axis.title = element_text(family = base_family),
-        #axis.title.y = element_text(vjust = 1, angle=0,hjust = 1),#,margin=margin(l=0,r=-100)),
         axis.ticks = element_blank(),
-        axis.text = element_text(family = base_family, size=ggplot2::rel(0.8)),
-        ## format legend
-        legend.text = element_text(family = base_family, size = ggplot2::rel(0.8)),
-        legend.title = element_text(family = base_family, ),
+        axis.text = element_text(family = base_family, size = rel(0.8)),
 
+        ## facets
+        strip.text = element_text(family = base_family, size = rel(0.8), margin = margin(b = half_line, t=half_line)),
+
+        ## format legend
+        legend.text = element_text(family = base_family, size = rel(0.8)),
+        legend.title = element_text(family = base_family),
+        legend.position = legend_position
       )
 
   )
-
-  if(orientation == "horiz"){
-    th[[1]]$panel.grid.major.x <- element_blank()
-    th[[1]]$panel.grid.minor.x <- element_blank()
-
-  } else if (orientation == "vert"){
-    th[[1]]$panel.grid.major.y <- element_blank()
-    th[[1]]$panel.grid.minor.y <- element_blank()
-
-  }
 
   return(th)
 }
