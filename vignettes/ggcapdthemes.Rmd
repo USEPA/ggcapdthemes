@@ -270,15 +270,6 @@ theme_capd <- function(base_size=11, orientation = "horiz"){
     sysfonts::font_add_google(base_family)
   }
 
-  ## initialize plot to enable showtext font
-  suppressMessages(
-    trace(grDevices::png, exit = quote({
-    showtext::showtext_begin()
-  }), print = FALSE)
-  )
-  suppressMessages(  untrace(grDevices::png))
-  showtext::showtext_begin()
-
   ## use default font until sysfonts kinks are worked out
   half_line <- base_size/2
   th <- list(
@@ -327,8 +318,6 @@ theme_capd <- function(base_size=11, orientation = "horiz"){
     th[[1]]$panel.grid.minor.x <- element_blank()
   }
 
-
-  showtext::showtext_end()
 
   return(th)
 }

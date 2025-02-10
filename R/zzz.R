@@ -1,3 +1,6 @@
+
+## function that runs on package load
+## goal: install and load Sans source 3 fonts from inst/fonts folder
 .onLoad <- function(libname, pkgname) {
 
   if (Sys.info()[1] == "Windows") {

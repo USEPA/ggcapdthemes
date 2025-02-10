@@ -24,19 +24,6 @@
 theme_capd <- function(base_size=11, orientation = "horiz",
                        gridlines = 'both'){
 
-  # if(!('source-sans-3' %in% sysfonts::font_families())){
-  #   sysfonts::font_add_google('Source Sans 3',family = 'source-sans-3')
-  # }
-
-  #extrafont::font_import(pattern='Source Sans 3',prompt=F)
-  #extrafont::loadfonts(quiet = TRUE)
-  #extrafont::font_import(pattern='Source Sans 3',prompt=F)
-  # suppressMessages(
-  #   trace(grDevices::png, exit = quote({
-  #   showtext::showtext_begin()
-  # }), print = FALSE)
-  # )
-
   if(gridlines == 'both'){
     panel.grid <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
     panel.grid.minor <- element_line(color = '#c9c9c9',linetype = 'dotted',linewidth = ggplot2::rel(1))
@@ -55,8 +42,6 @@ theme_capd <- function(base_size=11, orientation = "horiz",
     axis.line.y = element_blank()
   }
 
-  #suppressMessages(  untrace(grDevices::png))
-  #showtext::showtext_begin()
 
   ## use default font until sysfonts kinks are worked out
   base_family <- 'Source Sans 3'
@@ -106,9 +91,6 @@ theme_capd <- function(base_size=11, orientation = "horiz",
     th[[1]]$panel.grid.minor.y <- element_blank()
 
   }
-
-
-  #showtext::showtext_end()
 
   return(th)
 }
