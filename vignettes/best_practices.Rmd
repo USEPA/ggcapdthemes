@@ -43,7 +43,7 @@ p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
        caption = 'Data from 2022 eGRID summary data, Table 2') + 
   scale_fill_capd_discrete(palette = 'fuel_type') +
   scale_x_continuous(expand=c(0,0)) +
-  theme_capd(orientation = 'vert') 
+  theme_capd(plot_direction = 'vert') 
 ```
 
 ## Color as highlight
@@ -212,19 +212,5 @@ colorblindr::cvd_grid(p_bar)
 suppressWarnings(colorblindr::cvd_grid(p_bar+theme(legend.position='none')))
 ```
 
-
-<a href="#TOC">Return to Table of Contents</a>
-
-## Fuel Type icons
-
-The eleven most commonly used fuel types in CAPD are represented by icons; you can include these icons where applicable
-in your ggplot2 charts. For more details on integrating these icons (and how to use them appropriately), see the
-of the Data Visualization Style Guide.
-
-<a href="#TOC">Return to Table of Contents</a>
-
-## Adding Logos and Images
-
-Similarly to the fuel type icons, other logos and images can be incorporated into your ggplot2 charts.
 
 <a href="#TOC">Return to Table of Contents</a>
