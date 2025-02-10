@@ -5,13 +5,13 @@ globalVariables(c("capd_palettes"))
 #' @description
 #'  Apply discrete color scale to ggplot object using CAPD palettes
 #'
-#' @param palette name of palette, from `capd_palettes`. Defaults to "fuel_type".
+#' @param palette name of palette, from `capd_palettes`. Defaults to "unordered".
 #' @param reverse logical to indicate if palette order should be reversed. Defaults to FALSE.
 #' @param ... Additional parameters passed on to the scale type
 #'
 #' @export
 #'
-scale_color_capd_discrete <- function(palette = "fuel_type", reverse = FALSE, ...) {
+scale_color_capd_discrete <- function(palette = "unordered", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
   NA_col = ''
@@ -33,7 +33,7 @@ scale_color_capd_discrete <- function(palette = "fuel_type", reverse = FALSE, ..
 #'
 #' @export
 #'
-scale_fill_capd_discrete <-function(palette = "fuel_type", reverse = FALSE, ...) {
+scale_fill_capd_discrete <-function(palette = "unordered", reverse = FALSE, ...) {
 
  ## Color for missing data - by default, it will not be plotted
   NA_col = NA
