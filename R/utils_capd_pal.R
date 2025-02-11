@@ -78,8 +78,11 @@ capd.pal <- function(n, name){
          'fuel_type' = c('Other Unknown' = '#CD425B','Gas' = '#EF5E25','Oil'= '#8E704F','Solar'= '#8A984B', 'Biomass' = '#4D8055',
                          'Wind' = '#168092', 'Coal' = '#5C5C5C', 'Hydro' = '#2378C3', 'Nuclear'='#9287D8','Other Fossil'='#B04ABD',
                          'Geothermal' = '#C84281'),
+         'fuel_type2' = c('Other Unknown' = '#CD425B','Gas' = '#EF5E25','Oil'= '#8E704F','Solar'= '#FFBE2E', 'Biomass' = '#4D8055',
+                                   'Wind' = '#5ABF95', 'Coal' = '#5C5C5C', 'Hydro' = '#2378C3', 'Nuclear'='#9287D8','Other Fossil'='#B04ABD',
+                                   'Geothermal' = '#C84281'),
          ## Consolidated fuel type: renewables
-         'renewables' = c('Non-nuclear' = '#EF5E25', 'Non-hydro'= '#8A984B','Hydro'='#2378C3','Nuclear'='#9287D8'),
+         'renewables' = c('Non-renewables (excluding nuclear)' = '#EF5E25', 'Renewables (excluding hydro)'= '#8A984B','Hydro'='#2378C3','Nuclear'='#9287D8'),
 
          'renewables2' = c('Non-renewable'='#EF5E25','Renewable'='#8A984B'),
 
@@ -95,7 +98,6 @@ capd.pal <- function(n, name){
 
 capd_pal_c <- function(palette = "sequential",
                       reverse = FALSE,
-                      capd_palettes = capd_palettes,
                       ...) {
 
   pal <- capd_palettes[[palette]]
@@ -109,7 +111,7 @@ capd_pal_c <- function(palette = "sequential",
 
 }
 
-capd_pal_d <- function(palette = "fuel_type", reverse = FALSE){
+capd_pal_d <- function(palette = "unordered", reverse = FALSE){
   function(n){
 
     if(!(palette %in% names(min_colors))){

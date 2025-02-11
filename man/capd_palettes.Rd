@@ -5,7 +5,7 @@
 \alias{capd_palettes}
 \title{Color Palettes for CAPD}
 \format{
-A named list with hex color codes
+A named list with vectors of hex color codes. Some palettes have specific assigned color names for expected categories.
 }
 \source{
 CAPD Data Visualization Style Guide

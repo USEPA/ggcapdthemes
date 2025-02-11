@@ -1,8 +1,9 @@
 #' @title Set CAPD ggplot theme
 #'
 #' @param base_size font size, in pt
-#' @param plot_direction direction to use for axis and grid lines. "horiz", "vert", "both
-#' @param grid_lines should both major and minor gridlines ("both") or major only ("major") be displayed?
+#' @param plot_direction direction to use for axis and grid lines. Options are "horiz", "vert", or "both".
+#' @param grid_lines should major and/or minor gridlines be displayed? Options are "major","minor", or "both".
+#' @param ticks should tick marks be displayed? Options are TRUE or FALSE.
 #' @param legend_position side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of theme
 #'
 #' @return theme object to be appended to a ggplot call
@@ -14,20 +15,21 @@
 #' # chart ggplot mpg dataset with CAPD theme
 #' library(ggplot2)
 #' library(ggcapdthemes)
-#' df <- resource_mix[resource_mix$year == 2022,]
+#' df <- resource_mix[resource_mix$year == 2023,]
 #' p_bar <- ggplot(data = df) +
 #' geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
 #'         stat = 'identity') +
 #'  labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource',
-#'       title = '2022 eGRID Generation Resource Mix',
-#'       caption = 'Data from 2022 eGRID summary data, Table 2')
+#'       title = '2023 eGRID Generation Resource Mix',
+#'       caption = 'Data from 2023 eGRID summary data, Table 2')
 #' p_bar + theme_capd()
 
 theme_capd <- function(base_size=11, plot_direction = "horiz",
-                       grid_lines = 'major', legend_position = 'right'){
+                       grid_lines = 'major', ticks = FALSE, legend_position = 'right'){
 
   if(is.na(as.numeric(base_size)) | is.nan(as.numeric(base_size))){
     warning('No valid base_size provided. Setting to 11pt.')
+    base_size <- 11
   }
 
   if(length(grid_lines) == 0){
@@ -85,6 +87,29 @@ theme_capd <- function(base_size=11, plot_direction = "horiz",
 
     panel.grid.major.y <- panel.grid.major
     panel.grid.minor.y <- panel.grid.minor
+  } else {
+    stop('Please use "vert", "horiz", or "both" for the plot_direction argument.')
+  }
+
+  if(ticks == TRUE){
+    axis.ticks <- element_line(color = 'black')
+
+    if(plot_direction == 'vert'){
+      axis.ticks.x <- axis.ticks
+      axis.ticks.y <- element_blank()
+    } else if(plot_direction == 'horiz'){
+      axis.ticks.x <- element_blank()
+      axis.ticks.y <- axis.ticks
+    } else {
+      axis.ticks.x <- axis.ticks
+      axis.ticks.y <- axis.ticks
+    }
+  } else if(ticks == FALSE){
+    axis.ticks <- element_blank()
+    axis.ticks.x <- axis.ticks
+    axis.ticks.y <- axis.ticks
+  } else {
+    stop('Please use TRUE or FALSE for the ticks argument.')
   }
 
   th <- list(
@@ -118,7 +143,9 @@ theme_capd <- function(base_size=11, plot_direction = "horiz",
         axis.line.y = axis.line.y,
         ## format axes
         axis.title = element_text(family = base_family),
-        axis.ticks = element_blank(),
+        axis.ticks = axis.ticks,
+        axis.ticks.x = axis.ticks.x,
+        axis.ticks.y = axis.ticks.y,
         axis.text = element_text(family = base_family, size = rel(0.8)),
 
         ## facets

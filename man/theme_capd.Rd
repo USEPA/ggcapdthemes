@@ -4,14 +4,24 @@
 \alias{theme_capd}
 \title{Set CAPD ggplot theme}
 \usage{
-theme_capd(base_size = 11, orientation = "horiz", gridlines = "both")
+theme_capd(
+  base_size = 11,
+  plot_direction = "horiz",
+  grid_lines = "major",
+  ticks = FALSE,
+  legend_position = "right"
+)
 }
 \arguments{
 \item{base_size}{font size, in pt}
 
-\item{orientation}{direction to use for gridlines}
+\item{plot_direction}{direction to use for axis and grid lines. Options are "horiz", "vert", or "both".}
 
-\item{gridlines}{should both major and minor gridlines ("both") or major only ("major") be displayed?}
+\item{grid_lines}{should major and/or minor gridlines be displayed? Options are "major","minor", or "both".}
+
+\item{ticks}{should tick marks be displayed? Options are TRUE or FALSE.}
+
+\item{legend_position}{side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of theme}
 }
 \value{
 theme object to be appended to a ggplot call
@@ -23,12 +33,12 @@ Set CAPD ggplot theme
 # chart ggplot mpg dataset with CAPD theme
 library(ggplot2)
 library(ggcapdthemes)
-df <- resource_mix[resource_mix$year == 2022,]
+df <- resource_mix[resource_mix$year == 2023,]
 p_bar <- ggplot(data = df) +
 geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
         stat = 'identity') +
  labs(x = 'Generation Resource Mix (\%)', y = 'Resource', fill = 'Resource',
-      title = '2022 eGRID Generation Resource Mix',
-      caption = 'Data from 2022 eGRID summary data, Table 2')
+      title = '2023 eGRID Generation Resource Mix',
+      caption = 'Data from 2023 eGRID summary data, Table 2')
 p_bar + theme_capd()
 }

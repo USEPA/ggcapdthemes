@@ -27,50 +27,22 @@ capd_palettes <- list(
   'unordered2' = c('#2378C3','#5C5C5C','#9287D8','#EF5E25','#8A984B','Other'='#C9C9C9'),
 
   ## fuel type 2: Not for line charts
-  'fuel_type2' = c('Other Unknown' = '#CD425B','Gas' = '#EF5E25','Oil'= '#8E704F','Solar'= '#947100', 'Biomass' = '#4D8055',
-                   'Wind' = '#168092', 'Coal' = '#5C5C5C', 'Hydro' = '#2378C3', 'Nuclear'='#9287D8','Other Fossil'='#B04ABD',
-                   'Geothermal' = '#C84281'),
+  # 'fuel_type2' = c('Other Unknown' = '#CD425B','Gas' = '#EF5E25','Oil'= '#8E704F','Solar'= '#947100', 'Biomass' = '#4D8055',
+  #                  'Wind' = '#168092', 'Coal' = '#5C5C5C', 'Hydro' = '#2378C3', 'Nuclear'='#9287D8','Other Fossil'='#B04ABD',
+  #                  'Geothermal' = '#C84281'),
+  'fuel_type2' = c('Other Unknown' = '#CD425B','Gas' = '#EF5E25','Oil'= '#8E704F','Solar'= '#FFBE2E', 'Biomass' = '#4D8055',
+    'Wind' = '#5ABF95', 'Coal' = '#5C5C5C', 'Hydro' = '#2378C3', 'Nuclear'='#9287D8','Other Fossil'='#B04ABD',
+    'Geothermal' = '#C84281'),
 
   ## Consolidated fuel type: renewables
-  'renewables' = c('Non-nuclear' = '#EF5E25', 'Non-hydro'= '#8A984B','Hydro'='#2378C3','Nuclear'='#9287D8'),
+  'renewables' = c('Non-renewables (excluding nuclear)' = '#EF5E25', 'Renewables (excluding hydro)'= '#8A984B','Hydro'='#2378C3','Nuclear'='#9287D8'),
 
-  'renewables2' = c('Non-renewable'='#EF5E25','Renewable'='#8A984B'),
+  'renewables2' = c('Non-renewables'='#EF5E25','Renewables'='#8A984B'),
 
   ## Consolidated fuel type: combustion
-  'combustion' = c('Combustion' = '#EF5E25','Non-combustion'='#2378C3')
+  'combustion' = c('Combustion' = '#EF5E25','Non-combustion'='#2378C3'),
 
-
-)
-
-capd_palettes_dynamic <- list(
-  'divergent' =  list(
-    '2' = c('#FC906D','#73B3E7'),
-    '3' = c('#FC906D','#E6E6E6','#73B3E7'),
-    '4' = c('#CF4900','#FC906D','#73B3E7','#2378C3'),
-    '5' = c('#CF4900','#FC906D','#E6E6E6','#73B3E7','#2378C3'),
-    '6' = c('#782312','#CF4900','#FC906D','#73B3E7','#2378C3','#274863'),
-    '7' = c('#782312','#CF4900','#FC906D','#E6E6E6','#73B3E7','#2378C3','#274863')
-  ),
-  'divergent2' = list(
-    '2' = c('#E5A000', '#73B3E7'),
-    '3' = c('#E5A000', '#E6E6E6', '#73B3E7'),
-    '4' = c('#936F38', '#E5A000', '#73B3E7', '#2378C3'),
-    '5' = c('#936F38', '#E5A000', '#E6E6E6', '#73B3E7', '#2378C3'),
-    '6' = c('#5C410A', '#936F38', '#E5A000', '#73B3E7', '#2378C3', '#274863'),
-    '7' = c('#5C410A', '#936F38', '#E5A000', '#E6E6E6', '#73B3E7', '#2378C3','#274863')
-
-  ),
-  'sequential' = list(
-    '3' =  c('#D9E8F6','#AACDEC','#73B3E7'),
-    '4' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1'),
-    '5' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1','#2378C3'),
-    '6' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1','#2378C3','#2C608A'),
-    '7' =  c('#D9E8F6','#AACDEC','#73B3E7','#4F97D1','#2378C3','#2C608A','#274863')
-  )
-
-)
-
-bivariate_palettes <- list(
+  ## bivariate palettes - for maps
   'bivariate1' = c(
     "1-1" = "#F0F0F0", # low x, low y
     "2-1" = "#88B0D3",
@@ -82,6 +54,7 @@ bivariate_palettes <- list(
     "2-3" = "#6C5F0A",
     "3-3" = "#1B3F09" # high x, high y
   ),
+
   'bivariate2' = c(
     "1-1" = "#F0F0F0", # low x, low y
     "2-1" = "#CC9CD1",
@@ -93,6 +66,7 @@ bivariate_palettes <- list(
     "2-3" = "#4E655A",
     "3-3" = "#412E4E" # high x, high y
   )
+
 )
 
 usethis::use_data(capd_palettes, overwrite = TRUE)
