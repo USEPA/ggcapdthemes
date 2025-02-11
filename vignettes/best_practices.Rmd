@@ -49,10 +49,15 @@ Using the `gghighlight` package to assist, we can emphasize certain groups or el
 Leave fuel type as original color, gray out non-highlighted groups.
 
 ```{r}
+p_bar <- gg_ex_bar +
+  scale_color_capd_discrete(palette = 'fuel_type') +
+  theme_capd(plot_direction = 'vert', legend_position = 'none')
+```
+
+```{r}
 p_bar + gghighlight::gghighlight(
   resource == 'gas',
   unhighlighted_params = list(
-    #fill = '#919191',
     fill = '#C9C9C9', 
     color = '#2E2E2E',
     linewidth = 0.2) 
@@ -169,17 +174,16 @@ detailed but not overly wordy; it can be used in combination with other, non-vis
 ### Including Alt text manually
 
 ```{r, fig.alt='My alt text here'}
-p_bar_alt <- gg_ex_bar + 
-  theme_capd(legend_position = 'none') +
+p_alt <- p_bar +
   labs(alt = 'My alt text here')
 
-p_bar_alt
+p_alt
 ```
 
 ### Generating alt text template
 
 ```{r,}
-ggalttext::generate_alt_text(gg_ex_bar)
+ggalttext::generate_alt_text(p_bar)
 ```
 <a href="#TOC">Return to Table of Contents</a>
 
@@ -193,9 +197,9 @@ tables near their respective charts, or by allowing users to download that data.
 
 Variations of color accessibility can be assessed using the `colorblindr` package.
 
-```{r, echo=1, eval=1,fig.width=10, fig.height=10}
-colorblindr::cvd_grid(gg_ex_bar)
-suppressWarnings(colorblindr::cvd_grid(p_bar+theme(legend.position='none')))
+```{r, echo=1, eval=2,fig.width=10, fig.height=10}
+colorblindr::cvd_grid(p_bar)
+suppressWarnings(colorblindr::cvd_grid(p_bar))
 ```
 
 
