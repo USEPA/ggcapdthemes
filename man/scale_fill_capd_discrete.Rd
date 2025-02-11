@@ -4,10 +4,10 @@
 \alias{scale_fill_capd_discrete}
 \title{CAPD discrete fill scales}
 \usage{
-scale_fill_capd_discrete(palette = "fuel_type", reverse = FALSE, ...)
+scale_fill_capd_discrete(palette = "unordered", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{name of palette, from \code{capd_palettes}. Defaults to "fuel_type".}
+\item{palette}{name of palette, from \code{capd_palettes}. Defaults to "unordered".}
 
 \item{reverse}{logical to indicate if palette order should be reversed. Defaults to FALSE.}
 

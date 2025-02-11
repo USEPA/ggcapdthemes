@@ -7,7 +7,7 @@
 scale_fill_capd_continuous(palette = "sequential", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{name of palette, from \code{capd_palettes}. Defaults to "fuel_type".}
+\item{palette}{name of palette, from \code{capd_palettes}. Defaults to "sequential".}
 
 \item{reverse}{logical to indicate if palette order should be reversed. Defaults to FALSE.}
 

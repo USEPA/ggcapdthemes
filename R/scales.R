@@ -50,7 +50,9 @@ scale_fill_capd_discrete <-function(palette = "unordered", reverse = FALSE, ...)
 #' @description
 #'  Apply continuous color scale to ggplot object using CAPD palettes
 #'
-#' @inheritParams scale_color_capd_discrete
+#' @param palette name of palette, from `capd_palettes`. Defaults to "sequential".
+#' @param reverse logical to indicate if palette order should be reversed. Defaults to FALSE.
+#' @param ... Additional parameters passed on to the scale type
 #'
 #' @export
 #'
@@ -71,7 +73,7 @@ scale_color_capd_continuous <- function(palette = "sequential", reverse = FALSE,
 #' @description
 #'  Apply continuous fill scale to ggplot object using CAPD palettes
 #'
-#' @inheritParams scale_color_capd_discrete
+#' @inheritParams scale_color_capd_continuous
 #'
 #' @export
 #'
@@ -88,6 +90,7 @@ scale_fill_capd_continuous <- function(palette = "sequential", reverse = FALSE, 
 
 }
 
+## under development - not yet exported
 scale_fill_capd_binned <- function(palette = "sequential", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
@@ -101,6 +104,7 @@ scale_fill_capd_binned <- function(palette = "sequential", reverse = FALSE, ...)
 
 }
 
+## under development - not yet exported
 scale_color_capd_binned <- function(palette = "sequential", reverse = FALSE, ...) {
 
   ## Color for missing data - by default, it will not be plotted
