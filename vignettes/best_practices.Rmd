@@ -31,21 +31,6 @@ extrafont::loadfonts(quiet=T)
 
 ```
 
-## Introduction
-
-```{r initial-plot, echo=FALSE}
-## build ggplot barplot
-p_bar <- ggplot(data = resource_mix[resource_mix$year == 2022,]) +
-  geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
-           stat = 'identity') +
-  labs(x = 'Generation Resource Mix (%)', y = 'Resource', fill = 'Resource', 
-       title = '2022 eGRID Generation Resource Mix',
-       caption = 'Data from 2022 eGRID summary data, Table 2') + 
-  scale_fill_capd_discrete(palette = 'fuel_type') +
-  scale_x_continuous(expand=c(0,0)) +
-  theme_capd(plot_direction = 'vert') 
-```
-
 ## Color as highlight
 
 This theme includes both quantitative and categorical color palettes. However, there are some situations where you might
@@ -78,7 +63,6 @@ p_bar + gghighlight::gghighlight(
 #### Highlighting continuous colors
 
 ```{r, eval=F}
-
 p_co2 <- ggplot(co2_emission_2022, aes(y = Region, x = co2)) + 
   geom_bar(stat = 'identity', fill = '#2378C3') + 
   theme_capd()
@@ -185,7 +169,9 @@ detailed but not overly wordy; it can be used in combination with other, non-vis
 ### Including Alt text manually
 
 ```{r, fig.alt='My alt text here'}
-p_bar_alt <- p_bar + theme(legend.position='none') +labs(alt = 'My alt text here')
+p_bar_alt <- gg_ex_bar + 
+  theme_capd(legend_position = 'none') +
+  labs(alt = 'My alt text here')
 
 p_bar_alt
 ```
@@ -193,7 +179,7 @@ p_bar_alt
 ### Generating alt text template
 
 ```{r,}
-ggalttext::generate_alt_text(p_bar)
+ggalttext::generate_alt_text(gg_ex_bar)
 ```
 <a href="#TOC">Return to Table of Contents</a>
 
@@ -208,7 +194,7 @@ tables near their respective charts, or by allowing users to download that data.
 Variations of color accessibility can be assessed using the `colorblindr` package.
 
 ```{r, echo=1, eval=1,fig.width=10, fig.height=10}
-colorblindr::cvd_grid(p_bar)
+colorblindr::cvd_grid(gg_ex_bar)
 suppressWarnings(colorblindr::cvd_grid(p_bar+theme(legend.position='none')))
 ```
 
