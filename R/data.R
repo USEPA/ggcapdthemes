@@ -50,7 +50,7 @@
 
 #' Resource Mix Data
 #'
-#' @description Collected from eGRID 2018-2022 Summary datasets Table 2. Example data for demonstrating eGRID themes and scales for barplots
+#' @description Collected from eGRID 2018-2023 Summary datasets Table 2. Example data for demonstrating eGRID themes and scales for barplots
 #'
 #' @format
 #' A data frame with 11 rows and 6 columns
@@ -62,7 +62,7 @@
 #'   \item{generation_resource_mix}{Generation Resource Mix (percent)}
 #'   \item{resource_label}{Original Resource name, for charts}
 #'}
-#' @source eGRID 2018-2022 Summary data
+#' @source eGRID 2018-2023 Summary data
 "resource_mix"
 
 #' CO2 Emissions dataset
@@ -84,7 +84,14 @@
 #' @description Color Palettes for CAPD
 #'
 #' @format
-#' A named list with hex color codes
+#' A named list with vectors of hex color codes. Some palettes have specific assigned color names for expected categories.
 #'
 #' @source CAPD Data Visualization Style Guide
 "capd_palettes"
+
+#' Example barplot of 2023 eGRID resource mix
+#'
+#' @description ggplot object for use in examples
+#'
+#' @source CAPD Data Visualization Style Guide
+"gg_ex_bar"

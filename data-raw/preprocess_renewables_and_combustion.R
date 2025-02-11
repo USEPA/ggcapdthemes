@@ -9,7 +9,7 @@ renewables <- renewables_raw |>
          region = factor(region, levels=region)) |>
   tidyr::pivot_longer(cols=hydro:all_non_renewables, names_to='fuel_type', values_to='resource_mix') |>
   # mutate(fuel_type = str_replace_all(fuel_type, c('hydro' = 'Hydro', 'all_non_hydro_renewables'='Non-hydro', 'all_non_renewables'='Non-nuclear'))) %>%
-  dplyr::mutate(fuel_type = stringr::str_replace_all(fuel_type, c('all_non_hydro_renewables'='Renewable', 'all_non_renewables'='Non-renewable','hydro' = 'Renewable')))
+  dplyr::mutate(fuel_type = stringr::str_replace_all(fuel_type, c('all_non_hydro_renewables'='Renewables', 'all_non_renewables'='Non-renewables','hydro' = 'Renewables')))
 
 usethis::use_data(renewables, overwrite = TRUE)
 
