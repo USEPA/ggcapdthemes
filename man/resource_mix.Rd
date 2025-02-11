@@ -16,12 +16,12 @@ A data frame with 11 rows and 6 columns
 }
 }
 \source{
-eGRID 2018-2022 Summary data
+eGRID 2018-2023 Summary data
 }
 \usage{
 resource_mix
 }
 \description{
-Collected from eGRID 2018-2022 Summary datasets Table 2. Example data for demonstrating eGRID themes and scales for barplots
+Collected from eGRID 2018-2023 Summary datasets Table 2. Example data for demonstrating eGRID themes and scales for barplots
 }
 \keyword{datasets}
