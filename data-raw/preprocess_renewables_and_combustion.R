@@ -1,5 +1,5 @@
 
-renewables_raw <- read.csv('data-raw/Resource Mix by renewable vs. non-renewable fuels, by eGRID subregion, 2023.csv') |>
+renewables_raw <- read.csv('data-raw/resource_mix_renewable_vs_non-renewable_fuels_by_eGRID_subregion_2023.csv') |>
   janitor::clean_names()
 
 renewables <- renewables_raw |>
@@ -14,7 +14,7 @@ renewables <- renewables_raw |>
 usethis::use_data(renewables, overwrite = TRUE)
 
 
-combustion_raw <- read.csv('data-raw/Resource Mix by combustible vs. non-combustible fuels, by eGRID subregion, 2023.csv') |>
+combustion_raw <- read.csv('data-raw/resource mix_combustible_vs_non-combustible_fuels_by_eGRID_subregion_2023.csv') |>
   janitor::clean_names()
 
 combustion <- combustion_raw |>
