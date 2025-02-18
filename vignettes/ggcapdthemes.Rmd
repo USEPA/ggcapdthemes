@@ -30,10 +30,6 @@ library(ggplot2)
 library(ggcapdthemes)
 ```
 
-### General theme info
-
-The "Source Sans 3" font is downloaded from Google Fonts and applied to all when `theme_capd` is used. An initial font size is specified using the `base_size` argument; this defaults to 11pt, but we will use 10pt for this example. 
-
 ## Applying the theme: `theme_capd()`
 
 ```{r}
@@ -55,6 +51,10 @@ gg_ex_bar +
              legend_position = 'none')
 
 ```
+
+### General theme info
+
+The "Source Sans 3" font is downloaded from Google Fonts and applied to all when `theme_capd` is used. An initial font size is specified using the `base_size` argument; this defaults to 11pt, but we will use 10pt for this example. 
 
 ### Font sizing: `base_size`
 

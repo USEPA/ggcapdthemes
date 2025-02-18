@@ -3,8 +3,7 @@ title: "Best Practices"
 output: 
   rmarkdown::html_vignette:
     toc: true
-    toc_depth: 2
-    code_folding: hide
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{Best Practices}
   %\VignetteEngine{knitr::rmarkdown}
@@ -38,14 +37,9 @@ not want to use a whole palette; instead, you might want to use color to draw at
 without overwhelming the user. For more details on using color as a highlight, see the of the Data
 Visualization Style Guide.
 
-### Before 
-
-### Applying the Code
+### Highlighting discrete colors
 
 Using the `gghighlight` package to assist, we can emphasize certain groups or elements of charts.
-
-#### Highlighting discrete colors
-
 Leave fuel type as original color, gray out non-highlighted groups.
 
 ```{r}
@@ -65,7 +59,7 @@ p_bar + gghighlight::gghighlight(
   
 ```
 
-#### Highlighting continuous colors
+### Highlighting continuous colors
 
 ```{r, eval=F}
 p_co2 <- ggplot(co2_emission_2022, aes(y = Region, x = co2)) + 
@@ -91,8 +85,6 @@ Legends are most helpful and accessible when they are directly attached to the r
 possible, keeping them as close as possible to the data elements is a good compromise. For more details on legend design,
 see the of the Data Visualization dedicated section Style Guide.
 
-### Before 
-
 By default, ggplot sorts character variables for color / fill alphabetically from A to Z. Sometimes this is desired, other times there are more useful orders for aligning to the data at hand.
 
 ```{r, echo = T}
@@ -103,9 +95,7 @@ ggplot(data = so2_aq,
   theme_capd()
 ```
 
-### Applying the Code
-
-#### Sorting legend
+### Sorting legend entries
 
 Using the `fct_reorder2` function from the `forcats` tidyverse package, you can easily reorder columns by another columns value. This allows the legend categories to go in order of highest to lowest value.
 
@@ -118,7 +108,7 @@ ggplot(so2_aq,
 
 ```
 
-#### Adding direct labels on your chart
+### Adding direct labels on your chart
 
 Through the help of the `directlabels` package, you can also add labels directly onto a ggplot for easier context. Here we add them to the end of the lines using the `method = 'last.qp'` argument.
 
@@ -141,11 +131,11 @@ Tooltips that call out names, values, and style (color, stroke pattern, etc.) of
 data points easier to identify in your chart. For more details on tooltip design, see the of the Data
 Visualization Style Guide.
 
-### Before 
+### Plotly
 
-### Applying the Code
+The `plotly` package can be used for interactive charts. To turn a ggplot object into a plotly chart, wrap it in `plotly::ggplotly()`.
 
-```{r}
+```{r,eval=F}
 p_so2 <-ggplot(so2_aq,
        aes(x=year, y=value, color = stat)) +
   geom_line() +
@@ -155,8 +145,6 @@ p_so2 <-ggplot(so2_aq,
 
 plotly::ggplotly(p_so2)
 ```
-
-### After
 
 <a href="#TOC">Return to Table of Contents</a>
 
@@ -187,20 +175,19 @@ ggalttext::generate_alt_text(p_bar)
 ```
 <a href="#TOC">Return to Table of Contents</a>
 
-## Other Data Accessibility
 
-Another way to make your charts more accessible is to provide the underlying data directly to users either by providing data
-tables near their respective charts, or by allowing users to download that data.
-
-
-#### Color-Blindness
+## Color accessibility
 
 Variations of color accessibility can be assessed using the `colorblindr` package.
 
-```{r, echo=1, eval=2,fig.width=10, fig.height=10}
+```{r, fig.width=10, fig.height=10, warning=F}
 colorblindr::cvd_grid(p_bar)
-suppressWarnings(colorblindr::cvd_grid(p_bar))
 ```
 
 
 <a href="#TOC">Return to Table of Contents</a>
+
+## Other Data Accessibility
+
+Another way to make your charts more accessible is to provide the underlying data directly to users either by providing data
+tables near their respective charts, or by allowing users to download that data.
