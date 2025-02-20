@@ -20,7 +20,7 @@ You can install the development version of ggcapdthemes from
 ``` r
 #NOTE: You will need the “devtools” package to utilize the install_github function
 # install.packages("devtools")
-devtools::install_github("usepa/ggcapdthemes", build_vignettes = TRUE)
+devtools::install_github("usepa/ggcapdthemes", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
 ## Example
