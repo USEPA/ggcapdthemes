@@ -41,8 +41,11 @@ jobs:
           use-public-rspm: true
 
       - name: System Libraries
-         if: runner.os == 'macos-latest'
-         run: brew install cairo
+        run: |
+          if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+          elif [ "${{ matrix.os }}" == "macos-latest" ]; then
+            brew install cairo
+          fi
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
