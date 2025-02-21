@@ -42,10 +42,8 @@ jobs:
 
       - name: System Libraries
         run: |
-          if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
-          elif [ "${{ matrix.os }}" == "macos-latest" ]; then
-            brew install cairo
-          fi
+          if: ${{ matrix.os }} == 'macos-latest'
+          - run: brew install cairo
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
