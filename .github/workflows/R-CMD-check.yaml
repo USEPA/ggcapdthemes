@@ -42,7 +42,7 @@ jobs:
 
       - name: System Libraries
         run: |
-         if [ "${{ matrix.config.os }}" == "macos-latest" ]; then
+         if ( "${{ matrix.config.os }}" == "macos-latest" ); then
             brew install xquartz --cask
          fi
         
