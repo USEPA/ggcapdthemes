@@ -41,8 +41,10 @@ jobs:
           use-public-rspm: true
 
       - name: System Libraries
-        run: brew install xquartz --cask
-        if: ${{ matrix.config.os }} == "macOS"
+        run: 
+         if [ "${{ matrix.config.os }}" == "macos-latest" ]; then
+            brew install xquartz --cask
+          fi
         
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
