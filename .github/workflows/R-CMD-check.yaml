@@ -41,8 +41,9 @@ jobs:
           use-public-rspm: true
 
       - name: System Libraries
+        shell: bash
         run: |
-         if [[ "${{ matrix.config.os }}" == "macos-latest" ]]; then
+         if [ "${{ matrix.config.os }}" == "macos-latest" ]; then
             brew install xquartz --cask
          fi
         
