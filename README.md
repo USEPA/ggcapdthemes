@@ -20,9 +20,12 @@ You can install the development version of ggcapdthemes from
 [GitHub](https://github.com/) with:
 
 ``` r
-#NOTE: You will need the “devtools” package to utilize the install_github function
+#NOTE: You will need the "devtools" package to utilize the install_github function
 # install.packages("devtools")
-devtools::install_github("usepa/ggcapdthemes", dependencies = TRUE, build_vignettes = TRUE)
+remotes::install_github("wilkelab/cowplot")
+install.packages("colorspace")
+devtools::install_github("clauswilke/colorblindr", auth_token = NULL)
+devtools::install_github("USEPA/ggcapdthemes", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
 ## Example
