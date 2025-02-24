@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 ```{r setup, }
 library(ggplot2)
 library(ggcapdthemes)
-extrafont::loadfonts(quiet=T)
 ```
 
 ```{css, echo=F}
@@ -180,10 +179,14 @@ ggalttext::generate_alt_text(p_bar)
 
 Variations of color accessibility can be assessed using the `colorblindr` package.
 
-```{r, fig.width=10, fig.height=10, warning=F}
+```{r, warning=F, eval=F, echo=T}
 colorblindr::cvd_grid(p_bar)
 ```
 
+```{r, eval=T, echo=F,fig.width=10, fig.height=10}
+knitr::include_graphics('colorblindr_example_barplot.svg')
+
+```
 
 <a href="#TOC">Return to Table of Contents</a>
 
