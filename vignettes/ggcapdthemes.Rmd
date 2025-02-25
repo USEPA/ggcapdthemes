@@ -32,17 +32,44 @@ library(ggcapdthemes)
 
 ## Applying the theme: `theme_capd()`
 
+First, we start with some eGRID data shown in a ggplot bar chart, using the default ggplot theme. The `ggcapdthemes` package contains a data object called `gg_ex_bar` to use as a building block.
+
 ```{r}
 
 gg_ex_bar
 
+```
 
+Next, we add the `theme_capd()` function to apply our custom theme.
+
+```{r}
 gg_ex_bar +
   theme_capd()
 
+```
+
+To change the orientation of the axis and grid lines to the y-axis, we can provide the `plot_direction = 'vert'` argument. The default is 'horiz' for horizontal (x-axis and horizontal grid lines shown).
+
+```{r}
 gg_ex_bar +
   theme_capd(plot_direction = 'vert')
 
+```
+
+Other theme specifications can be controlled with the `ticks` `grid_lines` and `legend_position` arguments, as shown here.
+
+```{r}
+gg_ex_bar +
+  theme_capd(grid_lines = c('major','minor'), 
+             plot_direction = 'vert', 
+             ticks = TRUE, 
+             legend_position = 'none')
+
+```
+
+Lastly, we can add the `scale_fill_capd_discrete` function to apply a custom color palette for fuel types.
+
+```{r}
 gg_ex_bar +
   scale_fill_capd_discrete(palette = 'fuel_type') +
   theme_capd(grid_lines = c('major','minor'), 
@@ -98,7 +125,17 @@ gg_ex_bar +
 
 ### Gridlines: `grid_lines`
 
-The plot and panel background are filled with white rectangles, and their borders are removed. The gridlines are all replaced with #C9C9C9 dashed gray lines.
+The `grid_lines` arguments controls which sets of gridlines to display. 
+
+Possible options include
+
+- major grid lines `'major'` 
+- minor grid lines: `'minor'` 
+- both major and minor: `c('major','minor')`
+- no gridlines: `'none'`
+
+
+Note that this interacts with the `plot_direction` argument and only shows the gridlines for the orientations specified. Other gridlines remain hidden.
 
 ```{r}
 gg_ex_bar +
@@ -118,6 +155,8 @@ gg_ex_bar +
 
 ### Tick Marks: `ticks` 
 
+The `ticks` argument determines whether to show (TRUE) or hide (FALSE) the tick marks on the non-major axis, or the one perpendicular to the plot's orientation. For vertical `plot_directions`, this is the y-axis ticks marks and for horizontal orientations, this is the x-axis tick marks.
+
 ```{r}
 gg_ex_bar +
   theme_capd(ticks = FALSE)
@@ -126,9 +165,18 @@ gg_ex_bar +
   theme_capd(ticks = TRUE)
 ```
 
+When `plot_direction = 'both'`, this controls whether to show both x-axis and y-axis tick marks.
+
+```{r}
+gg_ex_bar +
+  theme_capd(ticks = TRUE, plot_direction = 'both')
+```
+
 <a href="#TOC">Return to Table of Contents</a>
 
 ### Legend: `legend_position`
+
+This is a wrapper for the `legend.position` ggplot theme argument. Valid options for `legend_position` are 'top', 'bottom', 'left', 'right', or 'none' to hide it.
 
 ```{r}
 gg_ex_bar +
