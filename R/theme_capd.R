@@ -1,7 +1,7 @@
 #' @title Set CAPD ggplot theme
 #'
 #' @param base_size font size, in pt
-#' @param plot_direction direction to use for axis and grid lines. Options are "horiz", "vert", or "both".
+#' @param axis_lines direction to use for axis and grid lines. Options are "horiz", "vert", or "both".
 #' @param grid_lines should major and/or minor gridlines be displayed? Options are "major","minor", or "both".
 #' @param ticks should tick marks be displayed? Options are TRUE or FALSE.
 #' @param legend_position side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of theme
@@ -24,7 +24,7 @@
 #'       caption = 'Data from 2023 eGRID summary data, Table 2')
 #' p_bar + theme_capd()
 
-theme_capd <- function(base_size=11, plot_direction = "horiz",
+theme_capd <- function(base_size=11, axis_lines = "horiz",
                        grid_lines = 'major', ticks = FALSE, legend_position = 'right'){
 
   if(is.na(as.numeric(base_size)) | is.nan(as.numeric(base_size))){
@@ -59,7 +59,7 @@ theme_capd <- function(base_size=11, plot_direction = "horiz",
     panel.grid.major <- element_blank()
   }
 
-  if(plot_direction == 'vert'){
+  if(axis_lines == 'vert'){
     axis.line.x <- element_blank()
     axis.line.y <- axis.line
 
@@ -69,7 +69,7 @@ theme_capd <- function(base_size=11, plot_direction = "horiz",
     panel.grid.major.y <- element_blank()
     panel.grid.minor.y <- element_blank()
 
-  } else if(plot_direction == 'horiz'){
+  } else if(axis_lines == 'horiz'){
     axis.line.x = axis.line
     axis.line.y = element_blank()
 
@@ -78,7 +78,7 @@ theme_capd <- function(base_size=11, plot_direction = "horiz",
 
     panel.grid.major.y <- panel.grid.major
     panel.grid.minor.y <- panel.grid.minor
-  } else if(plot_direction == 'both'){
+  } else if(axis_lines == 'both'){
     axis.line.x <- axis.line
     axis.line.y <- axis.line
 
@@ -88,16 +88,16 @@ theme_capd <- function(base_size=11, plot_direction = "horiz",
     panel.grid.major.y <- panel.grid.major
     panel.grid.minor.y <- panel.grid.minor
   } else {
-    stop('Please use "vert", "horiz", or "both" for the plot_direction argument.')
+    stop('Please use "vert", "horiz", or "both" for the axis_lines argument.')
   }
 
   if(ticks == TRUE){
     axis.ticks <- element_line(color = 'black')
 
-    if(plot_direction == 'vert'){
+    if(axis_lines == 'vert'){
       axis.ticks.x <- axis.ticks
       axis.ticks.y <- element_blank()
-    } else if(plot_direction == 'horiz'){
+    } else if(axis_lines == 'horiz'){
       axis.ticks.x <- element_blank()
       axis.ticks.y <- axis.ticks
     } else {

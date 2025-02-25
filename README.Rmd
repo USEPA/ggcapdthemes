@@ -43,12 +43,12 @@ library(ggcapdthemes)
 gg_ex_bar
 
 ## with capd theme
-gg_ex_bar + theme_capd(plot_direction = 'vert')
+gg_ex_bar + theme_capd(axis_lines = 'vert')
 
 ## with fuel type color palette and capd theme
 gg_ex_bar +
   scale_fill_capd_discrete(palette = 'fuel_type') +
-  theme_capd(plot_direction  = 'vert', legend_position = 'none') 
+  theme_capd(axis_lines  = 'vert', legend_position = 'none') 
 ```
 
 ## Disclaimer

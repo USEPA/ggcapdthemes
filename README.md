@@ -44,7 +44,7 @@ gg_ex_bar
 ``` r
 
 ## with capd theme
-gg_ex_bar + theme_capd(plot_direction = 'vert')
+gg_ex_bar + theme_capd(axis_lines = 'vert')
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
@@ -54,7 +54,7 @@ gg_ex_bar + theme_capd(plot_direction = 'vert')
 ## with fuel type color palette and capd theme
 gg_ex_bar +
   scale_fill_capd_discrete(palette = 'fuel_type') +
-  theme_capd(plot_direction  = 'vert', legend_position = 'none') 
+  theme_capd(axis_lines  = 'vert', legend_position = 'none') 
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />

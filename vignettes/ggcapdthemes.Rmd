@@ -48,11 +48,11 @@ gg_ex_bar +
 
 ```
 
-To change the orientation of the axis and grid lines to the y-axis, we can provide the `plot_direction = 'vert'` argument. The default is 'horiz' for horizontal (x-axis and horizontal grid lines shown).
+To change the orientation of the axis and grid lines to the y-axis, we can provide the `axis_lines = 'vert'` argument. The default is 'horiz' for horizontal (x-axis and horizontal grid lines shown).
 
 ```{r}
 gg_ex_bar +
-  theme_capd(plot_direction = 'vert')
+  theme_capd(axis_lines = 'vert')
 
 ```
 
@@ -61,7 +61,7 @@ Other theme specifications can be controlled with the `ticks` `grid_lines` and `
 ```{r}
 gg_ex_bar +
   theme_capd(grid_lines = c('major','minor'), 
-             plot_direction = 'vert', 
+             axis_lines = 'vert', 
              ticks = TRUE, 
              legend_position = 'none')
 
@@ -73,7 +73,7 @@ Lastly, we can add the `scale_fill_capd_discrete` function to apply a custom col
 gg_ex_bar +
   scale_fill_capd_discrete(palette = 'fuel_type') +
   theme_capd(grid_lines = c('major','minor'), 
-             plot_direction = 'vert', 
+             axis_lines = 'vert', 
              ticks = TRUE, 
              legend_position = 'none')
 
@@ -113,13 +113,13 @@ Plot annotations such as titles, subtitles is formatted through the following th
 ```{r}
 ## default: 'horiz'
 gg_ex_bar +
-  theme_capd(plot_direction = 'horiz')
+  theme_capd(axis_lines = 'horiz')
 
 gg_ex_bar +
-  theme_capd(plot_direction = 'vert')
+  theme_capd(axis_lines = 'vert')
 
 gg_ex_bar +
-  theme_capd(plot_direction = 'both')
+  theme_capd(axis_lines = 'both')
 
 ```
 
@@ -135,17 +135,17 @@ Possible options include
 - no gridlines: `'none'`
 
 
-Note that this interacts with the `plot_direction` argument and only shows the gridlines for the orientations specified. Other gridlines remain hidden.
+Note that this interacts with the `axis_lines` argument and only shows the gridlines for the orientations specified. Other gridlines remain hidden.
 
 ```{r}
 gg_ex_bar +
-  theme_capd(grid_lines = 'major', plot_direction = 'horiz')
+  theme_capd(grid_lines = 'major', axis_lines = 'horiz')
 
 gg_ex_bar +
-  theme_capd(grid_lines = 'major', plot_direction = 'vert')
+  theme_capd(grid_lines = 'major', axis_lines = 'vert')
 
 gg_ex_bar +
-  theme_capd(grid_lines = c('major','minor'), plot_direction = 'vert')
+  theme_capd(grid_lines = c('major','minor'), axis_lines = 'vert')
 
 gg_ex_bar +
   theme_capd(grid_lines = 'none')
@@ -155,7 +155,7 @@ gg_ex_bar +
 
 ### Tick Marks: `ticks` 
 
-The `ticks` argument determines whether to show (TRUE) or hide (FALSE) the tick marks on the non-major axis, or the one perpendicular to the plot's orientation. For vertical `plot_directions`, this is the y-axis ticks marks and for horizontal orientations, this is the x-axis tick marks.
+The `ticks` argument determines whether to show (TRUE) or hide (FALSE) the tick marks on the non-major axis, or the one perpendicular to the plot's orientation. For vertical `axis_liness`, this is the y-axis ticks marks and for horizontal orientations, this is the x-axis tick marks.
 
 ```{r}
 gg_ex_bar +
@@ -165,11 +165,11 @@ gg_ex_bar +
   theme_capd(ticks = TRUE)
 ```
 
-When `plot_direction = 'both'`, this controls whether to show both x-axis and y-axis tick marks.
+When `axis_lines = 'both'`, this controls whether to show both x-axis and y-axis tick marks.
 
 ```{r}
 gg_ex_bar +
-  theme_capd(ticks = TRUE, plot_direction = 'both')
+  theme_capd(ticks = TRUE, axis_lines = 'both')
 ```
 
 <a href="#TOC">Return to Table of Contents</a>
@@ -266,7 +266,7 @@ ggplot(combustion) +
   scale_x_continuous(expand = c(0,0)) + 
   labs(x = 'Resource Mix (%)', y='eGRID Subregion', fill = 'Fuel Type', title = '2023 eGRID Resource Mix',
        subtitle = 'by Combustion vs. Non-combustion fuels') +
-  theme_capd(plot_direction = 'vert')
+  theme_capd(axis_lines = 'vert')
 ```
 
 ##### Renewables vs Non-renewables
@@ -289,7 +289,7 @@ ggplot(renewables) +
   scale_x_continuous(expand=c(0,0)) +
   labs(x = 'Resource Mix (%)', y='eGRID Subregion', fill = 'Fuel Type', title = '2023 eGRID Resource Mix',
        subtitle = 'by Renewable vs. Non-renewable fuels') +
-  theme_capd(plot_direction = 'vert')
+  theme_capd(axis_lines = 'vert')
 ```
 
 #### Pollutant palettes

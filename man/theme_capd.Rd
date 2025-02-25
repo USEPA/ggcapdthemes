@@ -6,7 +6,7 @@
 \usage{
 theme_capd(
   base_size = 11,
-  plot_direction = "horiz",
+  axis_lines = "horiz",
   grid_lines = "major",
   ticks = FALSE,
   legend_position = "right"
@@ -15,7 +15,7 @@ theme_capd(
 \arguments{
 \item{base_size}{font size, in pt}
 
-\item{plot_direction}{direction to use for axis and grid lines. Options are "horiz", "vert", or "both".}
+\item{axis_lines}{direction to use for axis and grid lines. Options are "horiz", "vert", or "both".}
 
 \item{grid_lines}{should major and/or minor gridlines be displayed? Options are "major","minor", or "both".}
 

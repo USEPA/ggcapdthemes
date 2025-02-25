@@ -44,7 +44,7 @@ Leave fuel type as original color, gray out non-highlighted groups.
 ```{r}
 p_bar <- gg_ex_bar +
   scale_color_capd_discrete(palette = 'fuel_type') +
-  theme_capd(plot_direction = 'vert', legend_position = 'none')
+  theme_capd(axis_lines = 'vert', legend_position = 'none')
 ```
 
 ```{r}
