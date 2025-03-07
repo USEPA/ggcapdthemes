@@ -9,7 +9,6 @@
 #' @return theme object to be appended to a ggplot call
 #'
 #' @importFrom ggplot2 theme element_text element_line element_blank element_rect %+replace% rel margin
-#' @export
 #'
 #' @examples
 #' # chart ggplot mpg dataset with CAPD theme
@@ -33,12 +32,13 @@
 #' gg_ex_bar + theme_capd(legend_position = "bottom")
 #'
 #' ## hide legend
-#' gg_ex_bar + theme_capd(legend_position = "none)
+#' gg_ex_bar + theme_capd(legend_position = "none")
 #'
 #' ## show ticks on non-major axis - depends on axis_lines value
 #' gg_ex_bar + theme_capd(ticks = TRUE)
 #' gg_ex_bar + theme_capd(axis_lines = "vert", ticks = TRUE)
-
+#'
+#' @export
 theme_capd <- function(base_size=11, axis_lines = "horiz",
                        grid_lines = 'major', ticks = FALSE, legend_position = 'right'){
 

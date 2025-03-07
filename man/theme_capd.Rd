@@ -15,13 +15,13 @@ theme_capd(
 \arguments{
 \item{base_size}{font size, in pt}
 
-\item{axis_lines}{direction to use for axis and grid lines. Options are "horiz", "vert", or "both".}
+\item{axis_lines}{orientation to use for axis and grid lines. Options are "horiz", "vert", or "both".}
 
-\item{grid_lines}{should major and/or minor gridlines be displayed? Options are "major","minor", or "both".}
+\item{grid_lines}{should major and/or minor gridlines be displayed? Options are "major","minor", or c("major","minor").}
 
 \item{ticks}{should tick marks be displayed? Options are TRUE or FALSE.}
 
-\item{legend_position}{side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of theme}
+\item{legend_position}{side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of ggplot2::theme}
 }
 \value{
 theme object to be appended to a ggplot call
@@ -33,12 +33,28 @@ Set CAPD ggplot theme
 # chart ggplot mpg dataset with CAPD theme
 library(ggplot2)
 library(ggcapdthemes)
-df <- resource_mix[resource_mix$year == 2023,]
-p_bar <- ggplot(data = df) +
-geom_bar(mapping = aes(x = generation_resource_mix, y = resource_label, fill = resource_label),
-        stat = 'identity') +
- labs(x = 'Generation Resource Mix (\%)', y = 'Resource', fill = 'Resource',
-      title = '2023 eGRID Generation Resource Mix',
-      caption = 'Data from 2023 eGRID summary data, Table 2')
-p_bar + theme_capd()
+
+# apply basic theme
+gg_ex_bar + theme_capd()
+
+# change base font size throughout plot elements
+gg_ex_bar + theme_capd(base_size = 6)
+gg_ex_bar + theme_capd(base_size = 16)
+
+# rotate axis and grid lines
+gg_ex_bar + theme_capd(axis_lines = "vert")
+
+# show major and minor gridlines (default is major only)
+gg_ex_bar + theme_capd(axis_lines = "vert", grid_lines = c("major","minor"))
+
+# move legend to bottom of plot
+gg_ex_bar + theme_capd(legend_position = "bottom")
+
+## hide legend
+gg_ex_bar + theme_capd(legend_position = "none")
+
+## show ticks on non-major axis - depends on axis_lines value
+gg_ex_bar + theme_capd(ticks = TRUE)
+gg_ex_bar + theme_capd(axis_lines = "vert", ticks = TRUE)
+
 }
