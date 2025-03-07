@@ -43,7 +43,7 @@ Leave fuel type as original color, gray out non-highlighted groups.
 
 ```{r}
 p_bar <- gg_ex_bar +
-  scale_color_capd_discrete(palette = 'fuel_type') +
+  scale_fill_capd_discrete(palette = 'fuel_type') +
   theme_capd(axis_lines = 'vert', legend_position = 'none')
 ```
 
@@ -61,17 +61,18 @@ p_bar + gghighlight::gghighlight(
 ### Highlighting continuous colors
 
 ```{r, eval=F}
-p_co2 <- ggplot(co2_emission_2022, aes(y = Region, x = co2)) + 
+p_co2 <- ggplot(co2_emission_2022, aes(y = region, x = co2)) + 
   geom_bar(stat = 'identity', fill = '#2378C3') + 
-  theme_capd()
+  scale_x_continuous(limits=c(0,NA), expand=c(0,0)) +
+  theme_capd(axis_lines = 'vert')
 
 p_co2 +
   gghighlight::gghighlight(
-    Region == 'NYUP',
+    region == 'NYUP',
     unhighlighted_params = list(
       fill = '#C9C9C9', 
       linewidth = 0.2
-    ) 
+    )
   )
 
 ```
@@ -144,12 +145,6 @@ p_so2 <-ggplot(so2_aq,
 
 plotly::ggplotly(p_so2)
 ```
-
-<a href="#TOC">Return to Table of Contents</a>
-
-## Data labels
-
-Like tooltips, data labels can help make individual or important data points easier to identify
 
 <a href="#TOC">Return to Table of Contents</a>
 
