@@ -249,6 +249,28 @@ pals::pal.bands(capd_palettes$fuel_type,
 par(op)
 ```
 
+Example of a barchart using the `scale_fill_capd_discrete` function
+
+```{r}
+ggplot(resource_mix[resource_mix$year==2023,],aes(y = resource_label, x = generation_resource_mix, fill = resource_label)) +
+    geom_bar(stat='identity') +
+    scale_fill_capd_discrete(palette='fuel_type')+
+    scale_x_continuous(expand=c(0,0), labels=scales::label_percent())+
+    labs(x='', y='Resource Mix (%)', title='eGRID 2023 Resource Mix', color='Resource') +
+    theme_capd(axis_lines = 'vert', grid_lines = c('major','minor'), legend_position = 'none') 
+```
+
+Example of a line plot using the `scale_color_capd_discrete` function
+
+```{r}
+ggplot(resource_mix,aes(x = year, y = generation_resource_mix*100, color = resource_label, group = resource_label)) +
+  geom_line() +
+  geom_point()+
+  scale_color_capd_discrete(palette='fuel_type')+
+  labs(x='', y='Resource Mix (%)', title='eGRID Annual Resource Mix, 2018-2023', color='Resource') +
+  theme_capd(grid_lines = c('major','minor'))
+```
+
 ##### Combustion vs Non-Combustion
 
 All Combustion fuel types:
