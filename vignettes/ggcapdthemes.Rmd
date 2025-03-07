@@ -45,7 +45,6 @@ Next, we add the `theme_capd()` function to apply our custom theme.
 ```{r}
 gg_ex_bar +
   theme_capd()
-
 ```
 
 To change the orientation of the axis and grid lines to the y-axis, we can provide the `axis_lines = 'vert'` argument. The default is 'horiz' for horizontal (x-axis and horizontal grid lines shown).
@@ -53,10 +52,9 @@ To change the orientation of the axis and grid lines to the y-axis, we can provi
 ```{r}
 gg_ex_bar +
   theme_capd(axis_lines = 'vert')
-
 ```
 
-Other theme specifications can be controlled with the `ticks` `grid_lines` and `legend_position` arguments, as shown here.
+Other theme specifications can be controlled with the `ticks`, `grid_lines`, and `legend_position` arguments, as shown here.
 
 ```{r}
 gg_ex_bar +
@@ -64,7 +62,6 @@ gg_ex_bar +
              axis_lines = 'vert', 
              ticks = TRUE, 
              legend_position = 'none')
-
 ```
 
 Lastly, we can add the `scale_fill_capd_discrete` function to apply a custom color palette for fuel types.
@@ -88,7 +85,6 @@ The "Source Sans 3" font is downloaded from Google Fonts and applied to all when
 Other fonts throughout the chart are re-sized relative to the `base_size`, using the `ggplot2::rel` function. The `half_line` setting is used for margins.
 
 ```{r}
-
 gg_ex_bar +
   theme_capd(base_size = 11)
 
@@ -97,7 +93,6 @@ gg_ex_bar +
 
 gg_ex_bar +
   theme_capd(base_size = 16)
-
 ```
 
 Here we see the font applied to all text elements by default; they will be re-sized in the sections below.
@@ -106,9 +101,7 @@ Plot annotations such as titles, subtitles is formatted through the following th
 
 <a href="#TOC">Return to Table of Contents</a>
 
-### Axis line orientation: `plot direction`
-
-<a href="#TOC">Return to Table of Contents</a>
+### Axis line orientation: `axis_lines`
 
 ```{r}
 ## default: 'horiz'
@@ -120,8 +113,9 @@ gg_ex_bar +
 
 gg_ex_bar +
   theme_capd(axis_lines = 'both')
-
 ```
+
+<a href="#TOC">Return to Table of Contents</a>
 
 ### Gridlines: `grid_lines`
 
