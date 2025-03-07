@@ -59,6 +59,22 @@ gg_ex_bar +
 
 <img src="man/figures/README-example-3.png" width="100%" />
 
+## Vignettes
+
+For additional details and examples of how to use `theme_capd`, check
+out the ggcapdthemes vignette.
+
+``` r
+vignette('ggcapdthemes')
+```
+
+For some additional DVSG best practices that go beyond the theme, check
+out the “Best Practices” vignette.
+
+``` r
+vignette('best_practices', package = 'ggcapdthemes')
+```
+
 ## Disclaimer
 
 The United States Environmental Protection Agency (EPA) GitHub project

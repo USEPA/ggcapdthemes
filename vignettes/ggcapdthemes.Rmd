@@ -30,6 +30,8 @@ library(ggplot2)
 library(ggcapdthemes)
 ```
 
+For R users looking for DVSG best practices that go beyond the theme, check out the [Best Practices](best_practices.html) vignette.
+
 ## Applying the theme: `theme_capd()`
 
 First, we start with some eGRID data shown in a ggplot bar chart, using the default ggplot theme. The `ggcapdthemes` package contains a data object called `gg_ex_bar` to use as a building block.
