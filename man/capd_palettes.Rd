@@ -16,4 +16,22 @@ capd_palettes
 \description{
 Color Palettes for CAPD
 }
+\examples{
+# show fuel type palette
+capd_palettes$fuel_type
+
+# check names of palette
+names(capd_palettes$pollutant)
+
+# apply fuel type palette to barplot fill
+gg_ex_bar +
+   scale_fill_capd_discrete(palette = 'fuel_type')
+
+# apply fuel type palette to line color
+library(ggplot2)
+ggplot(resource_mix,aes(x = year, y = generation_resource_mix*100,
+       color = resource_label, group = resource_label)) +
+  geom_line() +
+  scale_color_capd_discrete(palette='fuel_type')
+}
 \keyword{datasets}
