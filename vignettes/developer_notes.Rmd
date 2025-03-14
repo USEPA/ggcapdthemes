@@ -1,0 +1,76 @@
+---
+title: "ggcapdthemes developer notes"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{ggcapdthemes developer notes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+These notes are meant as a starting point for editing the `ggcapdthemes` R package.
+
+For a more in-depth discussion of R package development, please refer to the [R Packages e-book](https://r-pkgs.org/)
+
+## Project Setup
+
+-   Clone the ggcapdthemes [github repo](https://github.com/usepa/ggcapdthemes): <https://github.com/USEPA/ggcapdthemes.git>
+-   Start an Rstudio project from the root directory
+-   Install `usethis` and `devtools` packages
+-   Install and load the latest version of ggcapdthemes
+
+## Updating the README
+
+-   Modify only the `README.rmd` file. To update the README.md file, use `devtools::build_readme()`.
+-   Chart output in the README file is sent to `man/figures`
+
+## Updating package datasets
+
+-   R scripts to create data live in data-raw/ subfolder. To create a new script, use `usethis::use_data_raw`
+-   Save data to package: - Final data lives in /data and should use the .rda file format. To save this data, use `usethis::use_data('dataset_name', overwrite = TRUE)`
+-   Document the dataset: in `R/data.R`, add a roxygen block for that
+
+## Updating functions
+
+-   Package functions live in the `/R` subfolder. To create a new function or access an existing script, use `usethis::use_r('new_file_name')`
+-   Check your work: `devtools::load_all()`
+
+## Updating help pages:
+
+-   Function documentation is written in `R/` above each corresponding function
+-   Dataset documentation lives in `R/data.R`
+-   For each function, provide at least the `title`, `description`, `param` tags
+-   To re-build the help pages, use `devtools::document()`. The generated files will be in the `/man` subfolder.
+-   More info on roxygen: <https://roxygen2.r-lib.org/articles/rd.html>
+
+## Write and run unit tests: tests/testthat
+
+-   Unit tests live in the `/tests/testthat` subfolder
+-   Run single test script: `devtools::test_active_file()`
+-   Run all tests: `devtools::test()`
+
+## Updating vignettes
+
+-   Vignettes live in the `/vignettes` subfolder
+-   To re-build vignettes during development, use `devtools::build_rmd('vignettes/ggcapdthemes.Rmd')`
+-   To check the installed version, use `vignette('vignette-name', package='ggcapdthemes')`
+
+## Re-installing the package
+
+-   `devtools::check()` to run R CMD checks and catch things during development
+-   `devtools::load_all()` to load all current versions of functions and datasets
+-   re-install locally: `devtools::install(build_vignettes = TRUE)`
+-   re-install from GitHub: devtools::install_github(dependencies = TRUE, build_vignettes = TRUE)
+
+## Miscellaneous
+
+-   font files live in `inst/fonts`. They get installed on users computers during package install, using the `.onLoad` function in `R/zzz.R`.
+-   incrementing package version: `usethis::use_version`
