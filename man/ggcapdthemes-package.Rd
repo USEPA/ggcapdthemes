@@ -12,6 +12,7 @@ Provides a custom ggplot2 theme and functionality to incorporate guidance from t
 Useful links:
 \itemize{
   \item \url{https://github.com/USEPA/ggcapdthemes}
+  \item \url{https://usepa.github.io/power-sector-dev-portal/}
   \item Report bugs at \url{https://github.com/USEPA/ggcapdthemes/issues}
 }
 

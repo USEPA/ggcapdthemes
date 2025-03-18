@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-Welcome! This vignette will demonstrate how the EPA CAPD Data Visualization Style Guide can be integrated into your R visualizations. Through the use of the `{ggcapdthemes}` package and the `theme_capd` function, you can easily customize and standardize your ggplots!
+Welcome! This vignette will demonstrate how the EPA [CAPD Data Visualization Style Guide](https://usepa.github.io/power-sector-dev-portal/) can be integrated into your R visualizations. Through the use of the `{ggcapdthemes}` package and the `theme_capd` function, you can easily customize and standardize your ggplots!
 
 ```{r, echo = FALSE}
 knitr::include_graphics('chart-layout.svg')
