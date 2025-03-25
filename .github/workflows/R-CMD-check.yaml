@@ -40,6 +40,13 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Restore R package cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}
+          key: ${{ runner.os }}-R-${{ matrix.config.r }}-${{ hashFiles('**/DESCRIPTION') }}
+          restore-keys: ${{ runner.os }}-R-${{ matrix.config.r }}-
+
       - name: System Libraries
         shell: bash
         run: |
