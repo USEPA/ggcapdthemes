@@ -60,8 +60,22 @@ For a more in-depth discussion of R package development, please refer to the [R 
 ## Updating vignettes
 
 -   Vignettes live in the `/vignettes` subfolder
+
+-   To create a new vignette, run `usethis::use_vignette()`
+
 -   To re-build vignettes during development, use `devtools::build_rmd('vignettes/ggcapdthemes.Rmd')`
+
 -   To check the installed version, use `vignette('vignette-name', package='ggcapdthemes')`
+
+-   To update vignettes as webpages on the DVSG ggplot site:
+
+-   use the following code to convert the .Rmd to an .md file:
+
+```{r, eval=F}
+rmarkdown::render('vignettes/best_practices.Rmd',rmarkdown::md_document(toc = T, toc_depth=4,preserve_yaml = T,standalone = T))
+```
+
+-   It also creates a folder of plot images called "best_practices_files". Copy everything over to the site repo and paste changes into the webpage .md files.
 
 ## Re-installing the package
 
