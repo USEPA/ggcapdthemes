@@ -5,6 +5,7 @@
 #' @param grid_lines should major and/or minor gridlines be displayed? Options are "major","minor", or c("major","minor").
 #' @param ticks should tick marks be displayed? Options are TRUE or FALSE.
 #' @param legend_position side of chart to put legend on, use "right", "left", "top","bottom", or "none". passed to legend.position argument of ggplot2::theme
+#' @param base_family Font family to use for plots. Options are "Source Sans 3" or "Source Sans 3 Salt". Defaults to "Source Sans 3"
 #'
 #' @return theme object to be appended to a ggplot call
 #'
@@ -40,7 +41,8 @@
 #'
 #' @export
 theme_capd <- function(base_size=11, axis_lines = "horiz",
-                       grid_lines = 'major', ticks = FALSE, legend_position = 'right'){
+                       grid_lines = 'major', ticks = FALSE, legend_position = 'right',
+                       base_family = 'Source Sans 3'){
 
   if(is.na(as.numeric(base_size)) | is.nan(as.numeric(base_size))){
     warning('No valid base_size provided. Setting to 11pt.')
@@ -55,7 +57,14 @@ theme_capd <- function(base_size=11, axis_lines = "horiz",
     grid_lines <- 'major'
   }
 
-  base_family <- 'Source Sans 3'
+  if(is.null(base_family)){
+    base_family <- 'Source Sans 3'
+  }
+  if(!(base_family %in% c('Source Sans 3','Source Sans 3 Salt'))){
+    warning('The base_family you specified was not found. Setting font to default of "Source Sans 3."')
+    base_family <- 'Source Sans 3'
+  }
+
   half_line <- base_size/2
   panel.grid <- element_line(color = '#c9c9c9',linetype = 'dashed',
                              linewidth = rel(0.8))
